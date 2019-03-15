@@ -111,6 +111,7 @@ ul{list-style-type: none;}
 
 /*左边轮播图*/
 #shop{font:12px/1.5 arial,\5b8b\4f53;width:1200px;height:auto;overflow:hidden;margin: 0 auto;margin-top: 10px;border:#dddddd 1px solid;border-top:#333 3px solid;margin-bottom:1px solid #dddddd;}
+#shop1{font:12px/1.5 arial,\5b8b\4f53;width:1200px;height:auto;overflow:hidden;margin: 0 auto;margin-top: 10px;border:#dddddd 1px solid;border-top:#333 3px solid;margin-bottom:1px solid #dddddd;}
 .s_left {float:left;width: 238px;height: 344px;border-right: #dddddd 1px solid;position: relative;}
 .s_left h3{padding-top:5px;padding-left:10px;font-size: 16px;font-weight: bold;text-align: center;padding-top: 10px;background: url(../img/pa_xs.gif)no-repeat 30% bottom;}
 .s_left .l_see{position:relative;width: 208px;height: 290px;margin-top: 10px;margin-left: 15px;overflow: hidden;}

@@ -8,6 +8,7 @@
 		<meta name="description" content="风尚购物在线商城新版上线，注册即送50元套券，直播商品在线订购立减20元。100%正品保证，全场免邮，全新的家庭购物体验，让您足不出户享受时尚购物新生活。">
 		<link rel="shortcut icon" href=http://resource.fstvgo.com/image/Favicon.ico />
 		<title>风尚购物-江西电视台风尚购物官方网站，全新的家庭购物体验</title>
+
 		<link rel="stylesheet" href="{% static 'css/fstvgo.css' %}" />
 		<link rel="stylesheet" href="{% static 'css/ux_1474353364_3114414/demo.css' %}" />
 		<link rel="stylesheet" href="{% static 'css/ux_1474353364_3114414/iconfont.css' %}" />
@@ -28,7 +29,7 @@
 			<div class="pri_1">
 				<div class="p_center">
 					<div class="p_center_cart">
-						<a class="p_cart">
+						<a class="p_cart" href="{% url 'app:cart' %}">
 							<i class="iconfont"></i>
 							<div style="width:18px;padding: 8px 8px 0px 8px;">购物车</div>
 						</a>
@@ -135,8 +136,19 @@
 					<div class="par1_r">
 
 						<p class="par1_rp">
-							<a href="{% url 'app:login' %}">登录</a>
-                            <a href="#">注销</a>
+
+
+								{% if user %}
+								<a>{{ user.name }}</a>
+
+								{% else %}
+							<a href="{% url 'app:login' %}">
+								未登录</a>
+								{% endif %}
+
+							 {% if user %}
+                            <a href="{% url 'app:logout' %}">注销</a>
+							{% endif %}
 							<a href="{% url 'app:registre' %}">免费注册&nbsp;<label style="color : #d32402;">送50元</label></a>
 
 						</p>
@@ -187,7 +199,7 @@
 				<ul class="c_nav_ul">
 					<li class="f_li">全部商品分类</li>
 					<li>
-						<a href="#">首页</a>
+						<a href="{% url 'app:goodlist' %}">全部商品</a>
 					</li>
 					<li>
 						<a href="#">电视直播</a>
@@ -619,6 +631,7 @@
 				</div>
 			</div>
 		</div>
+
 		<!--第五部分-->
 		<div id="imgcor">
 			<img src="{% static 'img/01/lin.jpg' %}">
@@ -1074,7 +1087,8 @@
 
 <!--<script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>-->
 
-<script src="{% static 'js/jquery.min.js' %}"></script>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="{% static 'js/swiper.min.js' %}"></script>
 
 <script type="text/javascript" src="{% static 'js/fstvgo.js' %}"></script>

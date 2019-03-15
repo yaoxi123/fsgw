@@ -27,12 +27,16 @@
 				<img src="{% static 'img/02/20140604175159.png' %}">
 			</div>
 			<div class="login_sta">
+				<form action="{% url 'app:login' %}" method="post">
+					{% csrf_token %}
 				<p>手机号</p>
-				<input type="text" class="user">
+				<input type="text" class="user" name="tel"><span style="color: red">{{ tel_err }}</span><br>
 				<span style="vertical-align: bottom">密码</span>
-				<input type="text" class="uerschake"><span class="user2"></span>
-				<p><input type="checkbox">自动登录 <i><a href="#">忘记密码?</a></i><em><a href="registre.html">免费注册</a></em></p>
-				<a id="getup" href="#"></a>
+				<input type="password" class="uerschake" name="password"><span class="user2"></span><span style="color: red">{{ ps_err }}</span>
+				<p><input type="checkbox">自动登录 <i><a href="#">忘记密码?</a></i><em><a href="{% url 'app:registre' %}">免费注册</a></em></p>
+				<!--<a id="getup" href="#"></a>-->
+					<input type="submit" id="getup" value="">
+					</form>
 				<div class="text">
 					<h4>说明</h4>
 					<p>如果您不清楚或忘记密码都可以使用“发送短信登录码”来继续登录</p>
@@ -57,3 +61,6 @@
 	</body>
 
 </html>
+<script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>
+<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/login.js' %}"></script>

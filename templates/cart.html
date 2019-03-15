@@ -76,8 +76,18 @@
 					<div class="par1_r">
 
 						<p class="par1_rp">
-							<a href="login.html">登录</a>
-							<a href="registre.html">免费注册&nbsp;<label style="color : #d32402;">送50元</label></a>
+							{% if user %}
+								<a>{{ user.name }}</a>
+
+								{% else %}
+							<a href="{% url 'app:login' %}">
+								未登录</a>
+								{% endif %}
+
+							 {% if user %}
+                            <a href="{% url 'app:logout' %}">注销</a>
+							{% endif %}
+							<a href="{% url 'app:registre' %}">免费注册&nbsp;<label style="color : #d32402;">送50元</label></a>
 						</p>
 						<p class="par1_rp2">
 							<a href="#">电话订购会员登录&nbsp;<label style="color: #d32402;">送50元</label></a>
@@ -110,7 +120,7 @@
 						<th>风尚价</th>
 						<th>
 							<div class="th_city">
-								<a style="line-height: 24px;float: left;width:81px;">江西 南昌市</a>
+								<a style="line-height: 24px;float: left;width:81px;">广东 深圳市</a>
 								<b class="citychos"></b>
 							</div>
 						</th>
