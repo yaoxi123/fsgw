@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" href=http://resource.fstvgo.com/image/Favicon.ico />
+
+		<title>用户登录注册</title>
+		<link rel="stylesheet" href="{% static 'css/login.css' %}" />
+		<!--<script type="text/javascript" src="js/jquery-1.12.3.js" ></script>-->
+		<!--<script type="text/javascript" src="js/jquery.cookie.js"></script>-->
+		<!--<script type="text/javascript" src="js/login.js"></script>-->
+		<script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>
+
+	</head>
+
+	<body>
+		<div id="logo">
+			<div class="logo">
+				<a href="fstvgo.html" target="_blank"><img src="{% static 'img/02/logo.gif' %}"></a>
+				<a href="#"><img src="{% static 'img/02/biaoyu-huanyingdenglu.png' %}"></a>
+			</div>
+		</div>
+		<div id="login">
+			<div class="l_left">
+				<img src="{% static 'img/02/20140604175159.png' %}">
+			</div>
+			<div class="login_sta">
+				<p>手机号</p>
+				<input type="text" class="user">
+				<span style="vertical-align: bottom">密码</span>
+				<input type="text" class="uerschake"><span class="user2"></span>
+				<p><input type="checkbox">自动登录 <i><a href="#">忘记密码?</a></i><em><a href="registre.html">免费注册</a></em></p>
+				<a id="getup" href="#"></a>
+				<div class="text">
+					<h4>说明</h4>
+					<p>如果您不清楚或忘记密码都可以使用“发送短信登录码”来继续登录</p>
+				</div>
+				<div class="l_foot">
+					<h5>使用合作网站账号登录</h5>
+					<img src="{% static 'img/02/alipay.png' %}">
+				</div>
+			</div>
+		</div>
+		<div id="fotter">
+			<div class="last_text">
+				<span><a href="#">触屏版</a></span>
+				<span><a href="#">电脑版</a></span>
+				<h3>ICP经营许可证：赣ICP备15000001号</h3>
+				<h3>24小时订购和服务热线：4001-677-077</h3>
+				<h3>Copyright 2008-2014，www.fstvgo.com 风尚购物 版权所有</h3>
+				<h3>本网站用字经北京北大方正电子有限公司授权许可</h3>
+			</div>
+		</div>
+
+	</body>
+
+</html>

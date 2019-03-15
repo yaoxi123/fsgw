@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" href=http://resource.fstvgo.com/image/Favicon.ico />
+		<title>用户登录注册</title>
+		<link rel="stylesheet" href="{% static 'css/register.css' %}" />
+		<script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>
+		<!--<script type="text/javascript" src="js/jquery.cookie.js"></script>-->
+		<!--<script type="text/javascript" src="js/register.js"></script>-->
+
+
+	</head>
+
+	<body>
+	<div id="logo">
+		<div class="logo">
+			<a href="fstvgo.html" target="_blank"><img src="{% static 'img/02/logo.gif' %}"></a>
+			<a href="#"><img src="{% static 'img/02/biaoyu-huanyingzhuce.png' %}"></a>
+		</div>
+	</div>
+	<div id="register">
+		<div class="r_top">
+			<dl>
+				<dt>
+					<span>新用户注册</span>
+				</dt>
+				<dd>
+					<i>我已注册,现在就<a href="login.html">登录</a></i>
+				</dd>
+			</dl>
+		</div>
+		<div class="r_content">
+			<div class="c_left"><img src="{% static 'img/02/20140713071722.png' %}"></div>
+			<div class="c_right">
+				<dl class="dl1">
+					<form>
+					<dt>
+						<b>*</b>
+						手机:
+					</dt>
+					<dd>
+						<input type="text" class="uerphone">
+					</dd>
+					<dd class="dd1">请填写您的手机号码</dd>
+				</dl>
+					<dl class="dl1">
+						<dt>
+							<b>*</b>
+							昵称:
+						</dt>
+						<dd>
+							<input type="text" class="uerphone">
+
+						</dd>
+						<dd class="">
+							请输入你的昵称
+						</dd>
+					</dl>
+
+				<dl class="dl2">
+					<dt><b>*</b>
+						邮箱:
+					</dt>
+					<dd>
+						<input type="text" class="uermail">
+					</dd>
+					<dd class="dd3">
+						订单信息和优惠信息通过邮件发送
+					</dd>
+				</dl>
+				<dl class="dl3">
+					<dt>
+						<b>*</b>
+						设置密码
+					</dt>
+					<dd>
+						<input type="password" class="uerpass">
+					</dd>
+					<dd class="dd4">
+						6 - 20位，区分大小写
+					</dd>
+				</dl>
+				<dl class="dl4">
+					<dt>
+						<b>*</b>
+						确认密码
+					</dt>
+					<dd>
+						<input type="password" class="password">
+					</dd>
+					<dd class="dd5">
+						请再输入一遍上面填写的密码
+					</dd>
+				</dl>
+				</form>
+				<div class="r_foot">
+					<input type="checkbox" checked="checked">我已阅读并同意
+					<a href="#">《风尚用户注册协议》</a>
+					<a href="#" class="uerre"><img src="{% static 'img/02/zhuce (1).gif' %}" id="uerform"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="fotter">
+		<div class="last_text">
+			<span><a href="#">触屏版</a></span>
+			<span><a href="#">电脑版</a></span>
+			<h3>ICP经营许可证：赣ICP备15000001号</h3>
+			<h3>24小时订购和服务热线：4001-677-077</h3>
+			<h3>Copyright 2008-2014，www.fstvgo.com 风尚购物 版权所有</h3>
+			<h3>本网站用字经北京北大方正电子有限公司授权许可</h3>
+		</div>
+	</div>
+	</body>
+
+</html>

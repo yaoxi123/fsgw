@@ -1,0 +1,574 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" href=http://resource.fstvgo.com/image/Favicon.ico />
+		<!--<script type="text/javascript" src="js/jquery-1.12.3.js"></script>-->
+		<link rel="stylesheet" href="{% static 'css/details.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/fstvgo.css' %}" />
+		<!--<script type="text/javascript" src="js/jquery.cookie.js"></script>-->
+		<!--<script type="text/javascript" src="js/fstvgo.js"></script>-->
+		<!--<script type="text/javascript" src="js/details.js"></script>-->
+		<!--<script type="text/javascript" src="js/cart.js"></script>-->
+		<!--<script type="text/javascript" src="js/jquery.cookie.js"></script>-->
+		<script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>
+		<title>"马踏飞燕"多功能太阳镜</title>
+	</head>
+
+	<body>
+
+		<div id="par">
+			<div class="par2">
+				<div class="par_box">
+					<div id="second_list">
+						<ul>
+							<li>
+								<a href="#">我的订单</a>
+							</li>
+							<li>
+								<a href="#">我的积分</a>
+							</li>
+							<li>
+								<a href="#">我的优惠券</a>
+							</li>
+							<li>
+								<a href="#">我的消息</a>
+							</li>
+							<li>
+								<a href="#">我的收藏</a>
+							</li>
+						</ul>
+					</div>
+					<div class="par2_r">
+
+						<p class="par2_rp">
+							<span>你好，</span>
+							<a href="#">网站用户</a>
+							<a href="#" id="getout">[退出]</a>
+						</p>
+						<p class="par2_rp2">
+							<a href="#" class="show_id">我的风尚</a>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!---->
+			<div class="par1">
+				<div class="par_box">
+					<div id="first_list">
+						<ul>
+							<li>
+								<a href="#">我的订单</a>
+							</li>
+							<li>
+								<a href="#">我的积分</a>
+							</li>
+							<li>
+								<a href="#">我的优惠券</a>
+							</li>
+							<li>
+								<a href="#">我的消息</a>
+							</li>
+							<li>
+								<a href="#">我的收藏</a>
+							</li>
+						</ul>
+					</div>
+					<div class="par1_r">
+
+						<p class="par1_rp">
+							<a href="login.html">登录</a>
+							<a href="registre.html">免费注册&nbsp;<label style="color : #d32402;">送50元</label></a>
+						</p>
+						<p class="par1_rp2">
+							<a href="#">电话订购会员登录&nbsp;<label style="color: #d32402;">送50元</label></a>
+							<a href="#" id="show_id">我的风尚</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="head">
+			<div class="h_cont">
+				<a href="fstvgo.html"><img src="{% static 'img/风尚购物_03.gif' %}" class="h_img1"></a>
+				<a href="#"><img src="{% static 'img/风尚购物_05.gif' %}" class="h_img2"></a>
+				<div class="h_contM">
+					<input type="text" placeholder="请输入商品关键词或货号"><input type="button" value="搜 索" class="h_input">
+					<p>热门搜索 ：
+						<a href="#">手表</a>&nbsp;
+						<a href="#">海参</a>&nbsp;
+						<a href="#">国宾</a>&nbsp;
+						<a href="#">洗衣机</a>&nbsp;
+						<a href="#">拖把</a>&nbsp;
+						<a href="#">窗帘</a>&nbsp;
+						<a href="#">蚕丝被</a>&nbsp;
+						<a href="#">羽绒服</a>&nbsp;
+						<a href="#">皮衣</a>
+					</p>
+				</div>
+				<div class="h_contR">
+					<p>0</p>
+					<img src="{% static 'img/风尚购物_07.jpg' %}">
+					<input type="button" value="去购物车结算" class="tocart">
+				</div>
+			</div>
+		</div>
+		<!--第三部分01-->
+		<div id="contents">
+			<div class="cc_list">
+				<div class="list_show">
+					<div class="show_l">
+						<a href="#">家居用品</a>
+						<a href="#">卧室床品</a>
+						<a href="#">厨浴电器</a>
+						<a href="#">汽车用品</a>
+					</div>
+					<div class="show_m">
+						<h3>推荐品牌</h3>
+						<a href="#">乐扣乐扣</a>
+						<a href="#">妙煮妇</a>
+						<a href="#">太古</a>
+						<a href="#">爱仕达</a>
+						<a href="#">老工匠</a>
+						<a href="#">康佳</a>
+						<a href="#">批得斯卡</a>
+						<a href="#">白玉兰</a>
+					</div>
+					<div class="show_r">
+						<h3>热门活动</h3>
+						<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+						<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+					</div>
+				</div>
+				<div class="list_show">
+					<div class="show_l">
+						<a href="#">日用电器</a>
+						<a href="#">电脑周边</a>
+						<a href="#">数码影音</a>
+						<a href="#">手机</a>
+					</div>
+					<div class="show_m">
+						<h3>推荐品牌</h3>
+						<a href="#">TCl</a>
+						<a href="#">清华同方</a>
+						<a href="#">康佳</a>
+						<a href="#">创维</a>
+						<a href="#">酷开</a>
+						<a href="#">长虹</a>
+						<a href="#">美的</a>
+						<a href="#">格兰仕</a>
+					</div>
+					<div class="show_r">
+						<h3>热门活动</h3>
+						<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+						<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+					</div>
+				</div>
+				<div class="list_show">
+					<div class="show_l">
+						<a href="#">运动户外</a>
+						<a href="#">保健用品</a>
+					</div>
+					<div class="show_m">
+						<h3>推荐品牌</h3>
+						<a href="#">海斯曼</a>
+						<a href="#">美国福特</a>
+						<a href="#">豪美雅</a>
+						<a href="#">尚朵</a>
+					</div>
+					<div class="show_r">
+						<h3>热门活动</h3>
+						<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+						<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+					</div>
+				</div>
+				<div class="list_show">
+					<div class="show_l">
+						<a href="#">手表</a>
+						<a href="#">服饰内衣</a>
+						<a href="#">鞋帽配饰</a>
+						<a href="#">箱包</a>
+					</div>
+					<div class="show_m">
+						<h3>推荐品牌</h3>
+						<a href="#">阿尼玛</a>
+						<a href="#">花花公子</a>
+						<a href="#">Prop Mark</a>
+						<a href="#">上海牌</a>
+						<a href="#">浪莎</a>
+					</div>
+					<div class="show_r">
+						<h3>热门活动</h3>
+						<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+						<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+					</div>
+				</div>
+				<div class="list_show">
+					<div class="show_l">
+						<a href="#">功能护肤</a>
+						<a href="#">美容化妆</a>
+						<a href="#">基础护理</a>
+					</div>
+					<div class="show_m">
+						<h3>推荐品牌</h3>
+						<a href="#">韩后</a>
+						<a href="#">瑾兰</a>
+						<a href="#">雅诗兰黛</a>
+						<a href="#">欧莱雅</a>
+						<a href="#">温碧泉</a>
+					</div>
+					<div class="show_r">
+						<h3>热门活动</h3>
+						<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+						<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+					</div>
+				</div>
+				<div class="list_show">
+					<div class="show_l">
+						<a href="#">营养食品</a>
+						<a href="#">减肥食品</a>
+					</div>
+					<div class="show_m">
+						<h3>推荐品牌</h3>
+						<a href="#">巧克力</a>
+						<a href="#">减肥茶</a>
+						<a href="#">茅台</a>
+						<a href="#">五粮液</a>
+						<a href="#">雪奥</a>
+						<a href="#">东阿百年堂</a>
+					</div>
+					<div class="show_r">
+						<h3>热门活动</h3>
+						<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+						<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+					</div>
+				</div>
+				<div class="list_show">
+					<div class="show_l">
+						<a href="#">珠宝收藏</a>
+						<a href="#">收藏品</a>
+					</div>
+					<div class="show_m">
+						<h3>推荐品牌</h3>
+						<a href="#">D&amp;G</a>
+						<a href="#">金玉逸品</a>
+						<a href="#">三喜珠宝</a>
+						<a href="#">真爱</a>
+						<a href="#">和玉祥</a>
+						<a href="#">安妮</a>
+					</div>
+					<div class="show_r">
+						<h3>热门活动</h3>
+						<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+						<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+					</div>
+				</div>
+
+				<ul class="c_list_ul">
+					<li>
+						<a href="#">家居生活</a>
+					</li>
+					<li>
+						<a href="#">数码家电</a>
+					</li>
+					<li>
+						<a href="#">保健养生</a>
+					</li>
+					<li>
+						<a href="#">服饰配件</a>
+					</li>
+					<li>
+						<a href="#">美容美发</a>
+					</li>
+					<li>
+						<a href="#">食品健康</a>
+					</li>
+					<li>
+						<a href="#">珠宝收藏</a>
+					</li>
+				</ul>
+				<div class="c_pai">
+					<h3>热门品牌</h3>
+					<dl>
+						<dd>
+							<a href="#">东芝</a>
+							<a href="#">长虹</a>
+							<a href="#">美的</a>
+							<a href="#">康佳</a><br>
+							<a href="#">爱仕达</a>
+							<a href="#">花花公子</a>
+							<a href="#">浪莎</a>
+							<a href="#">老工匠</a><br>
+							<a href="#">妙煮妇</a>
+							<a href="#">红豆</a>
+							<a href="#"></a>
+							<a href="#">莫瑞琪</a>
+							<a href="#">韩束</a><br>
+							<a href="#">瑾兰</a>
+							<a href="#">五粮液</a>
+							<a href="#">泸州</a>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div id="cont">
+				<div class="c_nav" style="width: 1200px;">
+					<ul class="c_nav_ul">
+						<li class="f_li">全部商品分类</li>
+						<li>
+							<a href="#">首页</a>
+						</li>
+						<li>
+							<a href="#">电视直播</a>
+						</li>
+						<li>
+							<a href="#">热卖榜</a>
+						</li>
+						<li>
+							<a href="#">风尚榜</a>
+						</li>
+						<li>
+							<a href="#">手机购物</a>
+						</li>
+						<li>
+							<a href="#">品牌店中店</a>
+						</li>
+					</ul>
+					<div class="online"></div>
+				</div>
+				<div class="g_top">
+					<h3>所有类别</h3>
+					<a href="#">服饰配件</a>
+					<a href="#">鞋帽配饰</a>
+				</div>
+			</div>
+			<div id="glass">
+				<div class="gl_left">
+					<div class="gl_big">
+						<div id="smlare"></div>
+						<div class="gl_pic">
+
+							<!--<img src="img/03/02.png" />
+							<img src="img/03/03.png" />
+							<img src="img/03/04.png" />
+							<img src="img/03/05.png" />
+							<img src="img/03/06.png" />
+							<img src="img/03/07.png" />-->
+						</div>
+					</div>
+					<div class="smlpic">
+						<a class="gleft"><img src="{% static 'img/03/prevbtn.gif' %}"></a>
+						<a class="gright"><img src="{% static 'img/03/nextbtn.gif' %}"></a>
+						<div class="g_show">
+							<ul>
+								<!--<li><img src="img/03/01.png" /></li>-->
+								<!--<li><img src="img/03/02.png" /></li>
+								<li><img src="img/03/03.png" /></li>
+								<li><img src="img/03/04.png" /></li>
+								<li><img src="img/03/05.png" /></li>
+								<li><img src="img/03/06.png" /></li>
+								<li><img src="img/03/07.png" /></li>-->
+							</ul>
+						</div>
+					</div>
+					<div class="g_link">
+
+						<span>分享到：</span>
+						<a href="#" title="分享到腾讯微博"></a>
+						<a href="#" title="分享到新浪微博" style="background: url(img/03/jiathis_ico.png)no-repeat 0 -96px;"></a>
+						<a href="#" title="分享到人人网" style="background:url(img/03/jiathis_ico.png) no-repeat 0px -160px"></a>
+						<a href="#" style="background: url(img/03/jiathis_ico.png)no-repeat 0 -176px;"></a>
+						<a href="#" style="background: url(img/03/jiathis_ico.png)no-repeat 0 -1408px;"></a>
+						<a href="#" title="累计分享次数" style="background: url(img/03/counter.gif) no-repeat 0px -64px;width: 36px;text-align: center;line-height: 17px;color: #333;font-weight:bold;font-size: 11px;">1</a>
+						<h4 style="float: right;margin-top: 10px;margin-right: 17px;cursor:pointer"><img src="{% static 'img/03/pr_sc.png' %}"></h4>
+					</div>
+				</div>
+				<div class="g_middle">
+					<div id="boost">
+						<!--<img src="img/03/01.png" class="picsrc" />-->
+					</div>
+					<h4>“马踏飞燕”多功能太阳镜</h4>
+					<div class="m_goods">
+						<p style="color: #999;font-size: 12px;">货&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：<span style="color: #333;" class="id">310025</span></p>
+						<h3 style="font-size:12px;color: #999;font-weight: normal;">风尚价格：<i class="goodsprice">¥199</i></h3>
+					</div>
+					<div class="m_little">
+						<dl>
+							<dt>
+							<p style="color: #f1320a;font-size: 12px;font-weight:bold;">1</p>
+							<h6 style="font-weight: normal;">元网购积分</h6>
+						</dt>
+							<dd>
+								<p style="font-size: 12px;color: #0066cc;font-weight: bold;">54</p>
+								<h6 style="font-weight: normal;">件/件月销量</h6>
+							</dd>
+							<dd>
+								<p style="font-size: 12px;color: #0066cc;font-weight: bold;">100</p>
+								<h6 style="font-weight: normal;">条评价</h6>
+							</dd>
+						</dl>
+					</div>
+					<div>
+						<span>库&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存：</span>
+						<div class="city">&nbsp;江西 南昌市<b></b></div>
+						<i>&nbsp;现货</i>
+					</div>
+					<div style="margin-top: 15px;" class="num">
+						<span>购买数量：</span>&nbsp;<input type="text" value="1" style="width: 30px;height: 20px;text-align: center;color: #333;">&nbsp;<span style="color: #333;">件</span>
+						<p style="display: inline-block;color: #333;">&nbsp;已选择<em style="font-style: normal;font-weight: bold;">"无 无码"</em></p>
+					</div>
+					<div style="margin-top: 15px;">
+						<a href="#"><img src="{% static 'img/03/quickbtn.png' %}"></a>
+						<a><img src="{% static 'img/03/addtocart.png' %}" class="addtocart"></a>
+					</div>
+
+				</div>
+				<div id="g_right">
+					<p style="">品牌名称：<span><a href="#">马踏飞燕</a></span></p>
+					<div class="paizi">
+						<a href="#">进入品牌页面查看更多</a>
+					</div>
+					<div class="blue">
+						<h2>[网购特惠]</h2>
+						<h2>支付宝/银联支付/微信支付</h2>
+						<h2>享受再减10元优惠</h2>
+					</div>
+					<div class="cart">
+						<h3>手机扫码订购</h3>
+						<img src="{% static 'img/03/QRCodeHandler.png' %}" style=" width:100px;">
+						<h4>货到付款/支付宝/银联支付/微信支付</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="goods">
+			<div class="good_left"></div>
+			<div class="goods_right">
+				<div class="tab">
+					<ul>
+						<li class="on">商品详情</li>
+						<li>支付/配送/退换货</li>
+						<li>顾客问答 <em>9</em></li>
+						<li>累计评价 <em>0</em></li>
+					</ul>
+				</div>
+				<div id="box">
+					<div class="box1">
+						<h2>主品说明</h2>
+						<h2>“马踏飞燕”多功能太阳镜HG186+马踏飞多功能太阳镜EG2010</h2>
+						<h2>赠品说明</h2>
+						<h2>防蓝光眼镜DG501+提醒器+车载眼镜夹</h2>
+						<h2>规格参数</h2>
+						<h2>1.主品1:多功能太阳镜HG186;材质:镜片为TAC材质的偏光片、镜架为TR90塑胶钛/0.5毫米钢片;重量:约17.6g;颜色：镜片上绿下黄；灰色镜架，银灰色镜腿；尺寸：镜片宽约62mm，鼻梁宽约15mm，镜腿长约130mm；类别：遮阳镜2类 2.主品2：马踏飞燕时尚偏光镜EG2010；材质：镜片为TAC材质的偏光片 ，镜架为PC树脂；重量：约29.1g；颜色：茶色镜片，樱花色镜架；尺寸：镜片宽约50mm，鼻梁宽约23mm，镜腿长约140mm；类别：遮阳镜3类；偏光功能：有 3.赠品1:浅色太阳镜DG501;材质:镜片为树脂片、镜架为TR90塑胶钛;重量:约14.3g;颜色:黄色镜片;黑色镜架;尺寸:镜片宽约52mm,鼻梁宽约20mm,镜腿长约135mm;类别:浅色太阳镜Ⅰ类;4.赠品2:提醒器：6.8*5*2.4cm;重量18.2g;颜色：银色;5.赠品3:新型车载眼镜夹;材质:塑料;重量:约14.3g;颜色:黑色;尺寸:6.7*3.6*2.4cm;产地：浙江杭州</h2>
+						<h2>功能说明</h2>
+						<h2>1.全能太阳镜=偏光镜+遮阳镜+夜视镜 白天防太阳强光，紫外线，晚上防眩光，增强路面清晰度，确保行车安全。 2.更轻更薄，过滤眩光效果更好，榔头砸不碎，并更有韧性。 3. 多功能太阳镜镜架采用弹性不锈钢与塑胶钛结合； 套镜镜架、防蓝光眼镜均采用塑胶钛，都十分轻盈.</h2>
+					</div>
+					<div class="box2">
+						<h2>支付方式：货到付款 支付宝</h2>
+					</div>
+					<div class="box3">
+						<div class="box33">
+							<div class="box3le">
+								<h3>有问题？我们的专业在线客服会为您解答疑问</h3>
+								<p>共有<em>9</em>条咨询</p>
+							</div>
+							<div class="box3ri">
+								<a>发表咨询</a>
+							</div>
+						</div>
+					</div>
+					<div class="box4"></div>
+				</div>
+			</div>
+		</div>
+		<div id="meg">
+			<div class="meg_c">
+				<h3 style="margin-left:210px;display:inline-block;font-size: 18px;font-weight: bold;line-height: 48px;">免费订阅优惠信息</h3><input type="text" placeholder="请输入你的邮箱" class="input1" style="margin-left: 10px;"><input type="button" value="确认" class="input2"><span style="display: inline-block;font-size: 12px;color:#999;line-height: 48px;margin-left: 15px;">我们会将最新的促销优惠信息发送给您</span>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="foot_left">
+				<dl>
+					<dt>帮助中心</dt>
+					<dd>
+						<a href="#">购物流程</a>
+						<a href="#">积分规则</a>
+						<a href="#">积分绑定使用</a>
+						<a href="#">订单状态说明</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>配送方式</dt>
+					<dd>
+						<a href="#">免费配送地区</a>
+						<a href="#">配送范围</a>
+						<a href="#">收费标准</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>支付方式</dt>
+					<dd>
+						<a href="#">货到付款</a>
+						<a href="#">银联支付</a>
+						<a href="#">支付宝</a>
+						<a href="#">微信支付</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>客户服务</dt>
+					<dd>
+						<a href="#">售后及退换货</a>
+						<a href="#">在线客服</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>会员中心</dt>
+					<dd>
+						<a href="#">资料修改</a>
+						<a href="#">找回密码</a>
+						<a href="#">会员等级</a>
+						<a href="#">会员权益</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>招商专区</dt>
+					<dd>
+						<a href="#">关于我们</a>
+						<a href="#">合作流程</a>
+						<a href="#">联系我们</a>
+						<a href="#">供应商系统</a>
+					</dd>
+				</dl>
+				<dl id="dl_last">
+					<dt>关注我们</dt>
+					<dd>
+						<a href="#">招贤纳士</a>
+						<a href="#"><img src="{% static 'img/01/weiboco.png' %}"></a>
+						<a href="#"><img src="{% static 'img/01/weixinco.png' %}"></a>
+					</dd>
+				</dl>
+				<ul>
+					<li><img src="{% static 'img/tellphone.gif' %}" <="" li="">
+				</li></ul>
+			</div>
+		</div>
+		<div id="last">
+			<div class="last_text">
+				<span><a href="#">触屏版</a></span>
+				<span><a href="#">电脑版</a></span>
+				<h3>ICP经营许可证：赣ICP备15000001号</h3>
+				<h3>24小时订购和服务热线：4001-677-077</h3>
+				<h3>Copyright 2008-2014，www.fstvgo.com 风尚购物 版权所有</h3>
+				<h3>本网站用字经北京北大方正电子有限公司授权许可</h3>
+			</div>
+		</div>
+
+
+
+	</body>
+
+</html>

@@ -1,0 +1,1080 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="keywords" content="风尚购物，江西风尚购物，风尚购物官方网站，江西电视台风尚购物，电视购物频道，家庭购物">
+		<meta name="description" content="风尚购物在线商城新版上线，注册即送50元套券，直播商品在线订购立减20元。100%正品保证，全场免邮，全新的家庭购物体验，让您足不出户享受时尚购物新生活。">
+		<link rel="shortcut icon" href=http://resource.fstvgo.com/image/Favicon.ico />
+		<title>风尚购物-江西电视台风尚购物官方网站，全新的家庭购物体验</title>
+		<link rel="stylesheet" href="{% static 'css/fstvgo.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/ux_1474353364_3114414/demo.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/ux_1474353364_3114414/iconfont.css' %}" />
+		 <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
+
+
+
+
+		<!--<script type="text/javascript" src="js/fstvgo.js"></script>-->
+		<!--<script type="text/javascript" src="js/slider.js"></script>-->
+		<!--<script type="text/javascript" src="js/login.js"></script>-->
+		<!--<script type="text/javascript" src="js/jquery.cookie.js"></script>-->
+		<!--<script type="text/javascript" src="js/cart.js"></script>-->
+	</head>
+
+	<body>
+		<div id="prism">
+			<div class="pri_1">
+				<div class="p_center">
+					<div class="p_center_cart">
+						<a class="p_cart">
+							<i class="iconfont"></i>
+							<div style="width:18px;padding: 8px 8px 0px 8px;">购物车</div>
+						</a>
+					</div>
+					<div class="p_center_uergood">
+						<a>
+							<i class="iconfont"></i>
+							<b>我的订单</b>
+						</a>
+					</div>
+					<div class="p_center_uertick">
+						<a>
+							<i class="iconfont"></i>
+							<b>抵用券</b>
+						</a>
+					</div>
+					<div class="p_center_uerlove">
+						<a style="">
+							<b>我的收藏</b>
+							<i class="iconfont"></i>
+						</a>
+					</div>
+				</div>
+				<div class="p_foot">
+					<div class="p_foot_uerthink">
+						<a>
+							<i class="iconfont"></i>
+							<b>用户反馈</b>
+						</a>
+					</div>
+					<div class="p_foot_uerma">
+						<a>
+							<i class="iconfont"></i>
+							<em><img src="{% static 'img/03/QRCodeHandler.png' %}" style="width: 100px;height: 100px;"></em>
+						</a>
+					</div>
+					<div class="p_foot_uerup">
+						<a>
+							<i class="iconfont" id="totop"></i>
+							<b>返回顶部</b>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="par">
+			<div class="par2">
+				<div class="par_box">
+					<div id="second_list">
+						<ul>
+							<li>
+								<a href="#">我的订单</a>
+							</li>
+							<li>
+								<a href="#">我的积分</a>
+							</li>
+							<li>
+								<a href="#">我的优惠券</a>
+							</li>
+							<li>
+								<a href="#">我的消息</a>
+							</li>
+							<li>
+								<a href="#">我的收藏</a>
+							</li>
+						</ul>
+					</div>
+					<div class="par2_r">
+
+						<p class="par2_rp">
+							<span>你好，</span>
+							<a href="#">网站用户</a>
+							<a href="#" id="getout">[退出]</a>
+						</p>
+						<p class="par2_rp2">
+							<a href="#" class="show_id">我的风尚</a>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!---->
+			<div class="par1">
+				<div class="par_box">
+					<div id="first_list">
+						<ul>
+							<li>
+								<a href="#">我的订单</a>
+							</li>
+							<li>
+								<a href="#">我的积分</a>
+							</li>
+							<li>
+								<a href="#">我的优惠券</a>
+							</li>
+							<li>
+								<a href="#">我的消息</a>
+							</li>
+							<li>
+								<a href="#">我的收藏</a>
+							</li>
+						</ul>
+					</div>
+					<div class="par1_r">
+
+						<p class="par1_rp">
+							<a href="{% url 'app:login' %}">登录</a>
+                            <a href="#">注销</a>
+							<a href="{% url 'app:registre' %}">免费注册&nbsp;<label style="color : #d32402;">送50元</label></a>
+
+						</p>
+						<p class="par1_rp2">
+							<a href="#">电话订购会员登录&nbsp;<label style="color: #d32402;">送50元</label></a>
+							<a href="#" id="show_id">我的风尚</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="dock">
+			<div class="h_cont">
+				<div class="h_contM">
+					<input type="text" placeholder="请输入商品关键词或货号" class="h_text"><input type="button" value="搜 索" class="h_input">
+				</div>
+			</div>
+		</div>
+
+		<div id="head">
+			<div class="h_cont">
+				<a href="fstvgo.html"><img src="{% static 'img/风尚购物_03.gif' %}" class="h_img1"></a>
+				<a href="#"><img src="{% static 'img/风尚购物_05.gif' %}" class="h_img2"></a>
+				<div class="h_contM">
+					<input type="text" placeholder="请输入商品关键词或货号" class="h_text"><input type="button" value="搜 索" class="h_input">
+					<p>热门搜索 ：
+						<a href="#">手表</a>&nbsp;
+						<a href="#">海参</a>&nbsp;
+						<a href="#">国宾</a>&nbsp;
+						<a href="#">洗衣机</a>&nbsp;
+						<a href="#">拖把</a>&nbsp;
+						<a href="#">窗帘</a>&nbsp;
+						<a href="#">蚕丝被</a>&nbsp;
+						<a href="#">羽绒服</a>&nbsp;
+						<a href="#">皮衣</a>
+					</p>
+				</div>
+				<div class="h_contR">
+					<p>0</p>
+					<img src="{% static 'img/风尚购物_07.jpg' %}">
+					<input type="button" value="去购物车结算" class="tocart">
+				</div>
+			</div>
+		</div>
+		<!--第三部分01-->
+		<div id="cont">
+			<div class="c_nav" style="width: 1200px;">
+				<ul class="c_nav_ul">
+					<li class="f_li">全部商品分类</li>
+					<li>
+						<a href="#">首页</a>
+					</li>
+					<li>
+						<a href="#">电视直播</a>
+					</li>
+					<li>
+						<a href="#">热卖榜</a>
+					</li>
+					<li>
+						<a href="#">风尚榜</a>
+					</li>
+					<li>
+						<a href="#">手机购物</a>
+					</li>
+					<li>
+						<a href="#">品牌店中店</a>
+					</li>
+				</ul>
+				<div class="online"></div>
+			</div>
+			<!--第三部分02-->
+			<div class="container">
+				<div class="c_list">
+					<div class="list_show">
+						<div class="show_l">
+							<a href="#">家居用品</a>
+							<a href="#">卧室床品</a>
+							<a href="#">厨浴电器</a>
+							<a href="#">汽车用品</a>
+						</div>
+						<div class="show_m">
+							<h3>推荐品牌</h3>
+							<a href="#">乐扣乐扣</a>
+							<a href="#">妙煮妇</a>
+							<a href="#">太古</a>
+							<a href="#">爱仕达</a>
+							<a href="#">老工匠</a>
+							<a href="#">康佳</a>
+							<a href="#">批得斯卡</a>
+							<a href="#">白玉兰</a>
+						</div>
+						<div class="show_r">
+							<h3>热门活动</h3>
+							<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+							<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+						</div>
+					</div>
+					<div class="list_show">
+						<div class="show_l">
+							<a href="#">日用电器</a>
+							<a href="#">电脑周边</a>
+							<a href="#">数码影音</a>
+							<a href="#">手机</a>
+						</div>
+						<div class="show_m">
+							<h3>推荐品牌</h3>
+							<a href="#">TCl</a>
+							<a href="#">清华同方</a>
+							<a href="#">康佳</a>
+							<a href="#">创维</a>
+							<a href="#">酷开</a>
+							<a href="#">长虹</a>
+							<a href="#">美的</a>
+							<a href="#">格兰仕</a>
+						</div>
+						<div class="show_r">
+							<h3>热门活动</h3>
+							<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+							<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+						</div>
+					</div>
+					<div class="list_show">
+						<div class="show_l">
+							<a href="#">运动户外</a>
+							<a href="#">保健用品</a>
+						</div>
+						<div class="show_m">
+							<h3>推荐品牌</h3>
+							<a href="#">海斯曼</a>
+							<a href="#">美国福特</a>
+							<a href="#">豪美雅</a>
+							<a href="#">尚朵</a>
+						</div>
+						<div class="show_r">
+							<h3>热门活动</h3>
+							<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+							<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+						</div>
+					</div>
+					<div class="list_show">
+						<div class="show_l">
+							<a href="#">手表</a>
+							<a href="#">服饰内衣</a>
+							<a href="#">鞋帽配饰</a>
+							<a href="#">箱包</a>
+						</div>
+						<div class="show_m">
+							<h3>推荐品牌</h3>
+							<a href="#">阿尼玛</a>
+							<a href="#">花花公子</a>
+							<a href="#">Prop Mark</a>
+							<a href="#">上海牌</a>
+							<a href="#">浪莎</a>
+						</div>
+						<div class="show_r">
+							<h3>热门活动</h3>
+							<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+							<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+						</div>
+					</div>
+					<div class="list_show">
+						<div class="show_l">
+							<a href="#">功能护肤</a>
+							<a href="#">美容化妆</a>
+							<a href="#">基础护理</a>
+						</div>
+						<div class="show_m">
+							<h3>推荐品牌</h3>
+							<a href="#">韩后</a>
+							<a href="#">瑾兰</a>
+							<a href="#">雅诗兰黛</a>
+							<a href="#">欧莱雅</a>
+							<a href="#">温碧泉</a>
+						</div>
+						<div class="show_r">
+							<h3>热门活动</h3>
+							<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+							<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+						</div>
+					</div>
+					<div class="list_show">
+						<div class="show_l">
+							<a href="#">营养食品</a>
+							<a href="#">减肥食品</a>
+						</div>
+						<div class="show_m">
+							<h3>推荐品牌</h3>
+							<a href="#">巧克力</a>
+							<a href="#">减肥茶</a>
+							<a href="#">茅台</a>
+							<a href="#">五粮液</a>
+							<a href="#">雪奥</a>
+							<a href="#">东阿百年堂</a>
+						</div>
+						<div class="show_r">
+							<h3>热门活动</h3>
+							<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+							<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+						</div>
+					</div>
+					<div class="list_show">
+						<div class="show_l">
+							<a href="#">珠宝收藏</a>
+							<a href="#">收藏品</a>
+						</div>
+						<div class="show_m">
+							<h3>推荐品牌</h3>
+							<a href="#">D&amp;G</a>
+							<a href="#">金玉逸品</a>
+							<a href="#">三喜珠宝</a>
+							<a href="#">真爱</a>
+							<a href="#">和玉祥</a>
+							<a href="#">安妮</a>
+						</div>
+						<div class="show_r">
+							<h3>热门活动</h3>
+							<a href="#"><img src="{% static 'img/list01.png' %}"></a>
+							<a href="#"><img src="{% static 'img/list02.png' %}"></a>
+						</div>
+					</div>
+
+					<ul class="c_list_ul">
+						<li>
+							<a href="#">家居生活</a>
+						</li>
+						<li>
+							<a href="#">数码家电</a>
+						</li>
+						<li>
+							<a href="#">保健养生</a>
+						</li>
+						<li>
+							<a href="#">服饰配件</a>
+						</li>
+						<li>
+							<a href="#">美容美发</a>
+						</li>
+						<li>
+							<a href="#">食品健康</a>
+						</li>
+						<li>
+							<a href="#">珠宝收藏</a>
+						</li>
+					</ul>
+					<div class="c_pai">
+						<h3>热门品牌</h3>
+						<dl>
+							<dd>
+								<a href="#">东芝</a>
+								<a href="#">长虹</a>
+								<a href="#">美的</a>
+								<a href="#">康佳</a><br>
+								<a href="#">爱仕达</a>
+								<a href="#">花花公子</a>
+								<a href="#">浪莎</a>
+								<a href="#">老工匠</a><br>
+								<a href="#">妙煮妇</a>
+								<a href="#">红豆</a>
+								<a href="#"></a>
+								<a href="#">莫瑞琪</a>
+								<a href="#">韩束</a><br>
+								<a href="#">瑾兰</a>
+								<a href="#">五粮液</a>
+								<a href="#">泸州</a>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<!--第三部分03-->
+
+				<div class="c_show">
+
+                    <!--大轮播图-->
+                 <div class="swiper-container" id="topSwiper">
+ <div class="swiper-wrapper">
+  {% for bwheel in bigwheels %}
+  <div class="swiper-slide"><img src="{{ bwheel.img }}" alt="{{ bwheel.name }}"></div>
+  {% endfor %}
+ </div>
+ <div class="swiper-pagination"></div>
+</div>
+
+
+
+
+
+					<ul class="ico">
+						<!--<li class="active">1</li>
+			        			<li>2</li>
+			        			<li>3</li>
+			        			<li>4</li>
+			        			<li>5</li>-->
+					</ul>
+					<div class="s_dis">
+						<img src="{% static 'img/20150909172150.jpg' %}">
+					</div>
+
+				</div>
+				<!--第三部分04-->
+				<div class="c_Tv">
+					<div class="T_top">
+						<h3>正在直播</h3>
+						<p>
+							<a><img src="{% static 'img/weixinsaoma.png' %}"></a>
+						</p>
+					</div>
+					<div class="T_but">
+						<dl>
+							<dt>当前播放17:20∼19:20</dt>
+							<dd style="padding-top: 4px;">正大酱鸭美味套组</dd>
+							<dd><i>立减20元</i>¥179</dd>
+						</dl>
+					</div>
+					<div class="T_fot" style="background:#eeeeee;width: 239px;">
+						<h4><a href="#"><img src="{% static 'img/201608051513395705488.jpg' %}"></a></h4>
+						<ul>
+							<li>雪润滋补乌鸡汤套组</li>
+							<li>上一节目16:40∼17:20</li>
+							<li><i>立减20元</i>¥379</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--第四部分-->
+		<div id="shop">
+			<div class="s_left">
+				<a id="left"></a>
+				<a id="right"></a>
+				<h3>今日特惠</h3>
+				<div class="l_see">
+					<!--小轮播图-->
+						                <div class="swiper-container" id="buySwiper">
+ <div class="swiper-wrapper">
+  {% for swheel in smwheels %}
+  <div class="swiper-slide"><img src="{{ swheel.img }}" alt="{{ swheel.name }}">
+     <p>{{ swheel.name }}</p>
+     <span>风尚价：¥{{ swheel.price }}</span></div>
+  {% endfor %}
+ </div>
+</div>
+				</div>
+			</div>
+			<div class="s_middle">
+				<a class="a_left"></a>
+				<a class="a_right"></a>
+				<div class="m_top">
+					<h4>TV热播</h4>
+				</div>
+				<div id="mm_bb">
+
+					<div id="mmm_bb">
+						<div id="m_bb">
+							<div class="m_le">
+								<div class="mm_top">
+									<img src="{% static 'img/01/201509101757505965454.jpg' %}">
+									<p>茅台济开富贵万年8品鉴<i>立减20元</i><em>￥799</em></p>
+								</div>
+								<div class="mm_bot">
+									<img src="{% static 'img/01/201608291415284615394.png' %}">
+									<p>三星新款5英寸智能手机<i>立减20元</i><em>￥979</em></p>
+								</div>
+							</div>
+							<div class="m_m">
+								<img src="{% static 'img/01/201608221147515427751.png' %}">
+								<h4>杉杉刺绣婚庆提花9+6套组<i>立减20元</i><em>￥979</em></h4>
+
+							</div>
+							<div class="m_r">
+								<div class="mm_top">
+									<img src="{% static 'img/01/201603101427550090501.png' %}">
+									<p>六福精品收藏把玩套组<i>立减20元</i><em>￥579</em></p>
+								</div>
+								<div class="mm_bot">
+									<img src="{% static 'img/01/201608101311230709054.png' %}">
+									<p>女士印花棉羊皮皮羽绒<i>立减20元</i><em>￥979</em></p>
+								</div>
+							</div>
+						</div>
+						<div id="m_bb">
+							<div class="m_le">
+								<div class="mm_top">
+									<img src="{% static 'img/01/201605031456036977962.png' %}">
+									<p>茅台济开富贵万年8品鉴<i>立减20元</i><em>￥799</em></p>
+								</div>
+								<div class="mm_bot">
+									<img src="{% static 'img/01/201603101427550090501.png' %}">
+									<p>三星新款5英寸智能手机<i>立减20元</i><em>￥979</em></p>
+								</div>
+							</div>
+							<div class="m_m">
+								<img src="{% static 'img/01/201608081439022423245.png' %}">
+								<h4>杉杉刺绣婚庆提花9+6套组<i>立减20元</i><em>￥979</em></h4>
+
+							</div>
+							<div class="m_r">
+								<div class="mm_top">
+									<img src="{% static 'img/01/201609081130495064447.png' %}">
+									<p>六福精品收藏把玩套组<i>立减20元</i><em>￥579</em></p>
+								</div>
+								<div class="mm_bot">
+									<img src="{% static 'img/01/003.png' %}">
+									<p>女士印花棉羊皮皮羽绒<i>立减20元</i><em>￥979</em></p>
+								</div>
+							</div>
+						</div>
+						<div id="m_bb">
+							<div class="m_le">
+								<div class="mm_top">
+									<img src="{% static 'img/01/201509101757505965454.jpg' %}">
+									<p>茅台济开富贵万年9品鉴<i>立减20元</i><em>￥799</em></p>
+								</div>
+								<div class="mm_bot">
+									<img src="{% static 'img/01/201608291415284615394.png' %}">
+									<p>三星新款5英寸智能手机<i>立减20元</i><em>￥979</em></p>
+								</div>
+							</div>
+							<div class="m_m">
+								<img src="{% static 'img/01/002.png' %}">
+								<h4>杉杉刺绣婚庆提花9+6套组<i>立减20元</i><em>￥979</em></h4>
+
+							</div>
+							<div class="m_r">
+								<div class="mm_top">
+									<img src="{% static 'img/01/201603101427550090501.png' %}">
+									<p>六福精品收藏把玩套组<i>立减20元</i><em>￥579</em></p>
+								</div>
+								<div class="mm_bot">
+									<img src="{% static 'img/01/201608101311230709054.png' %}">
+									<p>女士印花棉羊皮皮羽绒<i>立减20元</i><em>￥979</em></p>
+								</div>
+							</div>
+						</div>
+						<div id="m_bb">
+							<div class="m_le">
+								<div class="mm_top">
+									<img src="{% static 'img/01/201609130934262770324.png' %}">
+									<p>茅台济开富贵万年8品鉴<i>立减20元</i><em>￥799</em></p>
+								</div>
+								<div class="mm_bot">
+									<img src="{% static 'img/01/30664001.jpg' %}">
+									<p>三星新款5英寸智能手机<i>立减20元</i><em>￥979</em></p>
+								</div>
+							</div>
+							<div class="m_m">
+								<img src="{% static 'img/01/006.png' %}">
+								<h4>杉杉刺绣婚庆提花9+6套组<i>立减20元</i><em>￥979</em></h4>
+
+							</div>
+							<div class="m_r">
+								<div class="mm_top">
+									<img src="{% static 'img/01/201608291415284615394.png' %}">
+									<p>六福精品收藏把玩套组<i>立减20元</i><em>￥579</em></p>
+								</div>
+								<div class="mm_bot">
+									<img src="{% static 'img/01/001.png' %}">
+									<p>女士印花棉羊皮皮羽绒<i>立减20元</i><em>￥979</em></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="s_right">
+				<h2>风尚头条</h2>
+				<div class="news">
+					<a href="#">[公告] 海南浪漫双人游</a>
+					<a href="#">[快讯] 从跨界到破界，风尚购物获首届中国电视购物行业年会“年度卓越奖”</a>
+					<a href="#">[公告] 海南浪漫双人游</a>
+					<a href="#">[公告] 风尚购成功挂牌新三版</a>
+					<a href="#">[公告] 如何使用礼金代金券编码</a>
+					<a href="#">[公告] 品牌店中店销售说明</a>
+					<a href="#">[公告] 网上订购直播商品立减20元</a>
+					<a href="#">[公告] 风尚购物之购物说明</a>
+					<a href="#">[公告] 配送地址及收费说明</a>
+					<a href="#">[帮助] 支付方式说明</a>
+					<a href="#">[帮助] 售后服务政策</a>
+					<a href="#">[帮助] 积分说明</a>
+				</div>
+			</div>
+		</div>
+		<!--第五部分-->
+		<div id="imgcor">
+			<img src="{% static 'img/01/lin.jpg' %}">
+		</div>
+		<!--第六部分-->
+		<div id="live">
+			<div class="l_one">
+				<a href="#">更多</a>
+				<h3>1F.家居生活</h3>
+			</div>
+			<div class="l_last">
+				<div class="l_mike">
+					<img src="{% static 'img/01/doujianji.png' %}">
+				</div>
+				<div class="l_content">
+					<div class="con_top">
+						<a href="#" class="c_sp">热销商品推荐</a>
+						<a href="#">家居用品</a>
+						<a href="#">厨浴电器</a>
+						<a href="#">卧室床品</a>
+						<a href="#">汽车用品</a>
+					</div>
+					<div class="con_list">
+						<div class="cont_left">
+							<div class="contt_top">
+								<img src="{% static 'img/sml01.png' %}">
+								<p>茅台济开富贵万年8品鉴<em>￥799</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sm02.png' %}">
+								<p>三星新款5英寸智能手机<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="cont_m">
+							<img src="{% static 'img/bigimg01.png' %}">
+							<h4>洁宜佳活氧洁净管家套组<em>￥979</em></h4>
+
+						</div>
+						<div class="cont_right">
+							<div class="contt_top">
+								<img src="{% static 'img/sml03.png' %}">
+								<p>六福精品收藏把玩套组<em>￥579</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sml04.jpg' %}">
+								<p>女士印花棉羊皮皮羽绒<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="con_rrig">
+							<img src="{% static 'img/01/maton.png' %}">
+							<h4>百利佳节能水虹式坐便器<em>￥979</em></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--2F-->
+		<div class="live">
+			<div class="l_one">
+				<a href="#">更多</a>
+				<h3>2F.数码家电</h3>
+			</div>
+			<div class="l_last">
+				<div class="l_mike">
+					<img src="{% static 'img/bigimg02.png' %}">
+				</div>
+				<div class="l_content">
+					<div class="con_top">
+						<a href="#" class="c_sp">热销商品推荐</a>
+						<a href="#">数码影音</a>
+						<a href="#">日用电器</a>
+						<a href="#">手机</a>
+						<a href="#">电脑及周边</a>
+					</div>
+					<div class="con_list">
+						<div class="cont_left">
+							<div class="contt_top">
+								<img src="{% static 'img/sml06.png' %}">
+								<p>茅台济开富贵万年8品鉴<em>￥799</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sml07.jpg' %}">
+								<p>三星新款5英寸智能手机<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="cont_m">
+							<img src="{% static 'img/bigimg03.png' %}">
+							<h4>杉杉刺绣婚庆提花9+6套组<em>￥979</em></h4>
+
+						</div>
+						<div class="cont_right">
+							<div class="contt_top">
+								<img src="{% static 'img/sml07.jpg' %}">
+								<p>六福精品收藏把玩套组<em>￥579</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sm02.png' %}">
+								<p>女士印花棉羊皮皮羽绒<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="con_rrig">
+							<img src="{% static 'img/bigimg04.png' %}">
+							<h4>百利佳节能水虹式坐便器<em>￥979</em></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--3F-->
+		<div class="live2">
+			<div class="l_one">
+				<a href="#">更多</a>
+				<h3>3F.服饰配件</h3>
+			</div>
+			<div class="l_last">
+				<div class="l_mike">
+					<img src="{% static 'img/big05.png' %}">
+				</div>
+				<div class="l_content">
+					<div class="con_top">
+						<a href="#" class="c_sp">热销商品推荐</a>
+						<a href="#">数码影音</a>
+						<a href="#">日用电器</a>
+						<a href="#">手机</a>
+						<a href="#">电脑及周边</a>
+					</div>
+					<div class="con_list">
+						<div class="cont_left">
+							<div class="contt_top">
+								<img src="{% static 'img/sml06.png' %}">
+								<p>茅台济开富贵万年8品鉴<em>￥799</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sml07.jpg' %}">
+								<p>三星新款5英寸智能手机<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="cont_m">
+							<img src="{% static 'img/bigimg05.png' %}">
+							<h4>杉杉刺绣婚庆提花9+6套组<em>￥979</em></h4>
+
+						</div>
+						<div class="cont_right">
+							<div class="contt_top">
+								<img src="{% static 'img/sml07.jpg' %}">
+								<p>六福精品收藏把玩套组<em>￥579</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sml01.png' %}">
+								<p>女士印花棉羊皮皮羽绒<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="con_rrig">
+							<img src="{% static 'img/sml12.jpg' %}">
+							<h4>百利佳节能水虹式坐便器<em>￥979</em></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--4F-->
+		<div class="live3">
+			<div class="l_one">
+				<a href="#">更多</a>
+				<h3>4F.保健养生</h3>
+			</div>
+			<div class="l_last">
+				<div class="l_mike">
+					<img src="{% static 'img/bigimg06.png' %}">
+				</div>
+				<div class="l_content">
+					<div class="con_top">
+						<a href="#" class="c_sp">热销商品推荐</a>
+						<a href="#">数码影音</a>
+						<a href="#">日用电器</a>
+						<a href="#">手机</a>
+						<a href="#">电脑及周边</a>
+					</div>
+					<div class="con_list">
+						<div class="cont_left">
+							<div class="contt_top">
+								<img src="{% static 'img/sml10.png' %}">
+								<p>茅台济开富贵万年8品鉴<em>￥799</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sml14.png' %}">
+								<p>三星新款5英寸智能手机<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="cont_m">
+							<img src="{% static 'img/bigimg07.png' %}">
+							<h4>杉杉刺绣婚庆提花9+6套组<em>￥979</em></h4>
+
+						</div>
+						<div class="cont_right">
+							<div class="contt_top">
+								<img src="{% static 'img/sml07.jpg' %}">
+								<p>六福精品收藏把玩套组<em>￥579</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sml08.png' %}">
+								<p>女士印花棉羊皮皮羽绒<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="con_rrig">
+							<img src="{% static 'img/bigimg08.jpg' %}">
+							<h4>百利佳节能水虹式坐便器<em>￥979</em></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--5F-->
+		<div class="live4">
+			<div class="l_one">
+				<a href="#">更多</a>
+				<h3>5F.美容美发</h3>
+			</div>
+			<div class="l_last">
+				<div class="l_mike">
+					<img src="{% static 'img/big011.png' %}">
+				</div>
+				<div class="l_content">
+					<div class="con_top">
+						<a href="#" class="c_sp">热销商品推荐</a>
+						<a href="#">数码影音</a>
+						<a href="#">日用电器</a>
+						<a href="#">手机</a>
+						<a href="#">电脑及周边</a>
+					</div>
+					<div class="con_list">
+						<div class="cont_left">
+							<div class="contt_top">
+								<img src="{% static 'img/sml06.png' %}">
+								<p>茅台济开富贵万年8品鉴<em>￥799</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sml07.jpg' %}">
+								<p>三星新款5英寸智能手机<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="cont_m">
+							<img src="{% static 'img/big02.jpg' %}">
+							<h4>杉杉刺绣婚庆提花9+6套组<em>￥979</em></h4>
+
+						</div>
+						<div class="cont_right">
+							<div class="contt_top">
+								<img src="{% static 'img/sml07.jpg' %}">
+								<p>六福精品收藏把玩套组<em>￥579</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sml06.png' %}">
+								<p>女士印花棉羊皮皮羽绒<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="con_rrig">
+							<img src="{% static 'img/big03.png' %}">
+							<h4>百利佳节能水虹式坐便器<em>￥979</em></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--6F-->
+		<div class="live5">
+			<div class="l_one">
+				<a href="#">更多</a>
+				<h3>6F.食品健康</h3>
+			</div>
+			<div class="l_last">
+				<div class="l_mike">
+					<img src="{% static 'img/big04.png' %}">
+				</div>
+				<div class="l_content">
+					<div class="con_top">
+						<a href="#" class="c_sp">热销商品推荐</a>
+						<a href="#">数码影音</a>
+						<a href="#">日用电器</a>
+						<a href="#">手机</a>
+						<a href="#">电脑及周边</a>
+					</div>
+					<div class="con_list">
+						<div class="cont_left">
+							<div class="contt_top">
+								<img src="{% static 'img/sml06.png' %}">
+								<p>茅台济开富贵万年8品鉴<em>￥799</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sml13.png' %}">
+								<p>三星新款5英寸智能手机<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="cont_m">
+							<img src="{% static 'img/big06.png' %}">
+							<h4>杉杉刺绣婚庆提花9+6套组<em>￥979</em></h4>
+
+						</div>
+						<div class="cont_right">
+							<div class="contt_top">
+								<img src="{% static 'img/sml14.png' %}">
+								<p>六福精品收藏把玩套组<em>￥579</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sml95.png' %}">
+								<p>女士印花棉羊皮皮羽绒<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="con_rrig">
+							<img src="{% static 'img/big07.png' %}">
+							<h4>百利佳节能水虹式坐便器<em>￥979</em></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--7F-->
+		<div class="live6">
+			<div class="l_one">
+				<a href="#">更多</a>
+				<h3>7F.珠宝收藏</h3>
+			</div>
+			<div class="l_last">
+				<div class="l_mike">
+					<img src="{% static 'img/big001.png' %}">
+				</div>
+				<div class="l_content">
+					<div class="con_top">
+						<a href="#" class="c_sp">热销商品推荐</a>
+						<a href="#">珠宝配饰</a>
+						<a href="#">收藏品</a>
+					</div>
+					<div class="con_list">
+						<div class="cont_left">
+							<div class="contt_top">
+								<img src="{% static 'img/sml06.png' %}">
+								<p>茅台济开富贵万年8品鉴<em>￥799</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sml07.jpg' %}">
+								<p>三星新款5英寸智能手机<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="cont_m">
+							<img src="{% static 'img/big002.png' %}">
+							<h4>杉杉刺绣婚庆提花9+6套组<em>￥979</em></h4>
+
+						</div>
+						<div class="cont_right">
+							<div class="contt_top">
+								<img src="{% static 'img/sml07.jpg' %}">
+								<p>六福精品收藏把玩套组<em>￥579</em></p>
+							</div>
+							<div class="contt_bot">
+								<img src="{% static 'img/sml06.png' %}">
+								<p>女士印花棉羊皮皮羽绒<em>￥979</em></p>
+							</div>
+						</div>
+						<div class="con_rrig">
+							<img src="{% static 'img/big003.png' %}">
+							<h4>百利佳节能水虹式坐便器<em>￥979</em></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="meg">
+			<div class="meg_c">
+				<h3 style="margin-left:210px;display:inline-block;font-size: 18px;font-weight: bold;line-height: 48px;">免费订阅优惠信息</h3><input type="text" placeholder="请输入你的邮箱" class="input1" style="margin-left: 10px;"><input type="button" value="确认" class="input2"><span style="display: inline-block;font-size: 12px;color:#999;line-height: 48px;margin-left: 15px;">我们会将最新的促销优惠信息发送给您</span>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="foot_left">
+				<dl>
+					<dt>帮助中心</dt>
+					<dd>
+						<a href="#">购物流程</a>
+						<a href="#">积分规则</a>
+						<a href="#">积分绑定使用</a>
+						<a href="#">订单状态说明</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>配送方式</dt>
+					<dd>
+						<a href="#">免费配送地区</a>
+						<a href="#">配送范围</a>
+						<a href="#">收费标准</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>支付方式</dt>
+					<dd>
+						<a href="#">货到付款</a>
+						<a href="#">银联支付</a>
+						<a href="#">支付宝</a>
+						<a href="#">微信支付</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>客户服务</dt>
+					<dd>
+						<a href="#">售后及退换货</a>
+						<a href="#">在线客服</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>会员中心</dt>
+					<dd>
+						<a href="#">资料修改</a>
+						<a href="#">找回密码</a>
+						<a href="#">会员等级</a>
+						<a href="#">会员权益</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>招商专区</dt>
+					<dd>
+						<a href="#">关于我们</a>
+						<a href="#">合作流程</a>
+						<a href="#">联系我们</a>
+						<a href="#">供应商系统</a>
+					</dd>
+				</dl>
+				<dl id="dl_last">
+					<dt>关注我们</dt>
+					<dd>
+						<a href="#">招贤纳士</a>
+						<a href="#"><img src="{% static 'img/01/weiboco.png' %}"></a>
+						<a href="#"><img src="{% static 'img/01/weixinco.png' %}"></a>
+					</dd>
+				</dl>
+				<ul>
+					<li><img src="{% static 'img/tellphone.gif' %}" <="" li="">
+				</li></ul>
+			</div>
+		</div>
+		<div id="last">
+			<div class="last_text">
+				<span><a href="#">触屏版</a></span>
+				<span><a href="#">电脑版</a></span>
+				<h3>ICP经营许可证：赣ICP备15000001号</h3>
+				<h3>24小时订购和服务热线：4001-677-077</h3>
+				<h3>Copyright 2008-2014，www.fstvgo.com 风尚购物 版权所有</h3>
+				<h3>本网站用字经北京北大方正电子有限公司授权许可</h3>
+			</div>
+		</div>
+	</body>
+
+
+
+</html>
+
+<!--<script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>-->
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/swiper.min.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'js/fstvgo.js' %}"></script>

@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的购物车</title>
+		<link rel="shortcut icon" href=http://resource.fstvgo.com/image/Favicon.ico />
+		<!--<script type="text/javascript" src="js/jquery-1.12.3.js" ></script>-->
+		<!--<script type="text/javascript" src="js/jquery.cookie.js" ></script>-->
+		<!--<script type="text/javascript" src="js/cart.js" ></script>-->
+		<!--<script type="text/javascript" src="js/fstvgo.js" ></script>-->
+		<link rel="stylesheet" href="{% static 'css/cart.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/fstvgo.css' %}" />
+		<script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>
+
+	</head>
+	<body>
+		<div id="par">
+			<div class="par2">
+				<div class="par_box">
+					<div id="second_list">
+						<ul>
+							<li>
+								<a href="#">我的订单</a>
+							</li>
+							<li>
+								<a href="#">我的积分</a>
+							</li>
+							<li>
+								<a href="#">我的优惠券</a>
+							</li>
+							<li>
+								<a href="#">我的消息</a>
+							</li>
+							<li>
+								<a href="#">我的收藏</a>
+							</li>
+						</ul>
+					</div>
+					<div class="par2_r">
+
+						<p class="par2_rp">
+							<span>你好，</span>
+							<a href="#">网站用户</a>
+							<a href="#" id="getout">[退出]</a>
+						</p>
+						<p class="par2_rp2">
+							<a href="#" class="show_id">我的风尚</a>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!---->
+			<div class="par1">
+				<div class="par_box">
+					<div id="first_list">
+						<ul>
+							<li>
+								<a href="#">我的订单</a>
+							</li>
+							<li>
+								<a href="#">我的积分</a>
+							</li>
+							<li>
+								<a href="#">我的优惠券</a>
+							</li>
+							<li>
+								<a href="#">我的消息</a>
+							</li>
+							<li>
+								<a href="#">我的收藏</a>
+							</li>
+						</ul>
+					</div>
+					<div class="par1_r">
+
+						<p class="par1_rp">
+							<a href="login.html">登录</a>
+							<a href="registre.html">免费注册&nbsp;<label style="color : #d32402;">送50元</label></a>
+						</p>
+						<p class="par1_rp2">
+							<a href="#">电话订购会员登录&nbsp;<label style="color: #d32402;">送50元</label></a>
+							<a href="#" id="show_id">我的风尚</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="cart_hrader">
+			<div class="header_logo">
+				<a href="fstvgo.html"><img src="{% static 'img/02/logo.gif' %}"></a>
+				<ul>
+					<li>1.我的购物车</li>
+					<li>2.填写核对订单信息</li>
+					<li>3.成功提交订单</li>
+				</ul>
+			</div>
+			<div class="header_right">
+				<h2><em>我的购物车</em><a><img src="{% static 'img/tv.gif.jpg' %}"></a></h2>
+				<i><img src="{% static 'img/bg_cart.jpg' %}"></i>
+			</div>
+		</div>
+		<div class="middle">
+		<div id="main">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>商品</th>
+						<th>风尚价</th>
+						<th>
+							<div class="th_city">
+								<a style="line-height: 24px;float: left;width:81px;">江西 南昌市</a>
+								<b class="citychos"></b>
+							</div>
+						</th>
+						<th>数量</th>
+						<th>金额小计</th>
+					</tr>
+				</thead>
+				<tbody id="car_tbody">
+					<tr class="tr">
+						<td class="td1">
+							<h6>风尚自营</h6>
+							<div class="c_src">
+								<img src="{% static 'img/03/01.png' %}">
+							</div>
+							<div class="td1div">
+								<a class="c_name">"马踏飞燕"多功能太阳镜11</a>
+								<p class="c_id">商品编号：<em>310025&nbsp;</em>颜色：<i>无&nbsp;</i>规格：<label>无</label></p>
+							</div>
+						</td>
+						<td class="td2">
+							<p>¥199</p>
+						</td>
+						<td class="td3">
+							<p>有货</p>
+						</td>
+						<td class="td4">
+							<span class="spanff"><span class="jian">-</span><input type="text" placeholder="1"><span class="jia">+</span></span>
+						</td>
+						<td class="td5">
+							<p>¥0</p>
+						</td>
+						<td class="td6">
+							<div class="td6div">
+							   <a>收藏</a>
+							   <a class="remove">删除</a>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div id="pay">
+				<div class="pay_1">
+					<a class="removecart">清空购物车</a>
+					<div class="paybox1">
+						<i>总计：</i>
+						<p>促销折扣：</p>
+					</div>
+					<div class="paybox2">
+						<b>¥0</b>
+						<p>-¥0</p>
+					</div>
+
+				</div>
+				<div class="pay_2">
+					<a>你可获积分：¥0</a>
+					<b>总计(不含运费)：</b>
+					<em>¥<strong class="sum">0</strong></em>
+				</div>
+			</div>
+
+		</div>
+		<div class="mian_foot">
+				<a class="foot_shop" href="fstvgo.html">继续购物</a>
+				<div class="foot_right">
+					<span>填写送货地址 积分抵扣 优惠券使用 请点击-&gt;</span>
+				    <a class="foot_end">去结算 &gt;</a>
+				</div>
+				
+			</div>
+		</div>
+		<div id="last">
+			<div class="last_text">
+				<span><a href="#">触屏版</a></span>
+				<span><a href="#">电脑版</a></span>
+				<h3>ICP经营许可证：赣ICP备15000001号</h3>
+				<h3>24小时订购和服务热线：4001-677-077</h3>
+				<h3>Copyright 2008-2014，www.fstvgo.com 风尚购物 版权所有</h3>
+				<h3>本网站用字经北京北大方正电子有限公司授权许可</h3>
+			</div>
+		</div>
+	</body>
+</html>
