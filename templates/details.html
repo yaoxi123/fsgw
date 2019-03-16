@@ -418,39 +418,32 @@
                         <div class="bt-wrapper">
                             <span >购买数量：</span>&nbsp; <span class="glyphicon glyphicon-minus"></span>
                             <input type="text" value="1" style="width: 30px;height: 20px;text-align: center;color: #333;" id="number1">&nbsp;<span style="color: #333;" ></span>
-                           <!--<i class="num" style="width: 30px;height: 20px;text-align: center;color: #333;">-->
-                                <!--{% for cart in carts %}-->
-<!--{#                                    当前购物车记录的 goods.id#}-->
-                                    <!--{% if goods.id == cart.goods.id %}-->
-                                        <!--{{ cart.number}}-->
-                                    <!--{% endif %}-->
-                                <!--{% endfor %}-->
-                            <!--</i>-->
-                         <span class="glyphicon glyphicon-plus"></span><span>&nbsp;&nbsp;件</span></div>
-						<!--<p style="display: inline-block;color: #333;">&nbsp;已选择<em style="font-style: normal;font-weight: bold;">"无 无码"</em></p>-->
+
+                         <span class="glyphicon glyphicon-plus"></span><span>&nbsp;&nbsp;</span></div>
+
 					</div>
 					<div style="margin-top: 15px;">
-						<a href="#"><img src="{% static 'img/03/quickbtn.png' %}"></a>
-						<a><img src="{% static 'img/03/addtocart.png' %}" class="addtocart" data-goodsid="{{ good.id }}"></a>
+						<a href="{% url 'app:cart' %}"><img src="{% static 'img/03/quickbtn.png' %}"></a>
+						<a ><img src="{% static 'img/03/addtocart.png' %}" class="addtocart" data-goodsid="{{ good.id }}"></a>
 					</div>
 
 				</div>
-				<!--<div id="g_right">
-					<!--<p style="">品牌名称：<span><a href="#">{{ good.product }}</a></span></p>-->
-					<!--<div class="paizi">-->
-						<!--<a href="#">进入品牌页面查看更多</a>-->
-					<!--</div>-->
-					<!--<div class="blue">-->
-						<!--<h2>[网购特惠]</h2>-->
-						<!--<h2>支付宝/银联支付/微信支付</h2>-->
-						<!--<h2>享受再减10元优惠</h2>-->
-					<!--</div>-->
-					<!--<div class="cart">-->
-						<!--<h3>手机扫码订购</h3>-->
-						<!--<img src="{% static 'img/03/QRCodeHandler.png' %}" style=" width:100px;">-->
-						<!--<h4>货到付款/支付宝/银联支付/微信支付</h4>-->
-					<!--</div>-->
-				<!--</div>-->
+				<div id="g_right">
+					<p style="">品牌名称：<span><a href="#">{{ good.product }}</a></span></p>
+					<div class="paizi">
+						<a href="#">进入品牌页面查看更多</a>
+					</div>
+					<div class="blue">
+						<h2>[网购特惠]</h2>
+						<h2>支付宝/银联支付/微信支付</h2>
+						<h2>享受再减10元优惠</h2>
+					</div>
+					<div class="cart">
+						<h3>手机扫码订购</h3>
+						<img src="{% static 'img/03/QRCodeHandler.png' %}" style=" width:100px;">
+						<h4>货到付款/支付宝/银联支付/微信支付</h4>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div id="goods">
