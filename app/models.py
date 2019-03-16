@@ -56,3 +56,18 @@ class Goods(models.Model):
 
     class Meta:
         db_table = 'goods'
+
+class Cart(models.Model):
+    # 用户 [添加的这个商品属于哪个用户]
+    user = models.ForeignKey(User)
+    # [添加的是哪个商品]
+    goods = models.ForeignKey(Goods)
+    # 商品数量
+    number = models.IntegerField()
+    # 是否选中
+    isselect = models.BooleanField(default=True)
+    # 是否删除
+    isdelete = models.BooleanField(default=False)
+    class Meta:
+        db_table = 'cart'
+

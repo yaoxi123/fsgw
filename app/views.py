@@ -4,7 +4,7 @@ import time
 
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from app.models import Bigwheel,Smwheel,User,Goods
+from app.models import Bigwheel,Smwheel,User,Goods,Cart
 # Create your views here.
 from django.core.cache import cache
 
@@ -103,6 +103,10 @@ def details(request,productid):
 
         user = User.objects.get(pk=userid)
         response_dir['user'] = user
+    if userid:
+        user = User.objects.get(pk=userid)
+        carts = user.cart_set.all()
+        response_dir['carts'] = carts
     return render(request, 'details.html', context=response_dir)
 
 def cart(request):
@@ -115,7 +119,33 @@ def cart(request):
     if token:
         user = User.objects.get(pk=userid)
         response_dir['user'] = user
-    return render(request, 'cart.html', context=response_dir)
+    if userid:  # 有登录才显示
+        user = User.objects.get(pk=userid)
+        carts = user.cart_set.filter(number__gt=0)
+        response_dir['carts'] = carts
+
+        isall = True
+        for cart in carts:
+            if not cart.isselect:
+                isall = False
+            response_dir['isall'] = isall
+        return render(request, 'cart.html', context=response_dir)
+    else:   # 未登录不显示
+        return render(request, 'login.html')
+
+
+    # if userid:  # 有登录才显示
+    #     user = User.objects.get(pk=userid)
+    #     carts = user.cart_set.filter(number__gt=0)
+    #
+    #     isall = True
+    #     for cart in carts:
+    #         if not cart.isselect:
+    #             isall = False
+    #
+    #     return render(request, 'cart/cart.html', context={'carts': carts, 'isall':isall})
+    # else:   # 未登录不显示
+    #     return render(request, 'cart/no-login.html')
 
 
 def checketel(request):
@@ -146,4 +176,42 @@ def goodlist(request):
         user = User.objects.get(pk=userid)
         response_dir['user'] = user
     return render(request,'goodlist.html',context=response_dir)
+
+def addcart(request):
+    # 获取token
+    token = request.session.get('token')
+    # 响应数据
+    response_data = {}
+    # 缓存
+    if token:
+        userid = cache.get(token)
+        if userid:  # 已经登录
+            user = User.objects.get(pk=userid)
+            goodsid = request.GET.get('goodsid')
+            num = int(request.GET.get('number1'))
+            # print(goodsid)
+            goods = Goods.objects.get(pk=goodsid)
+            # 商品不存在: 添加新记录
+            # 商品存在: 修改number
+            carts = Cart.objects.filter(user=user).filter(goods=goods)
+            if carts.exists():
+                cart = carts.first()
+                cart.number = cart.number + num
+                cart.save()
+            else:
+                cart = Cart()
+                cart.user = user
+                cart.goods = goods
+                cart.number = num
+                cart.save()
+
+            response_data['status'] = 1
+            response_data['number'] = cart.number
+            response_data['msg'] = '添加 {} 购物车成功: {}'.format(cart.goods.productname, cart.number)
+            return JsonResponse(response_data)
+    # 因为是ajax操作，所以重定向是不可以的!
+    # return redirect('axf:login')
+    response_data['status'] = -1
+    response_data['msg'] = '请登录后操作'
+    return JsonResponse(response_data)
 

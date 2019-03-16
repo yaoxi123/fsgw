@@ -1,17 +1,15 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 	<head>
 		<meta charset="UTF-8">
 		<title>我的购物车</title>
+		<!--<link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
 		<link rel="shortcut icon" href=http://resource.fstvgo.com/image/Favicon.ico />
-		<!--<script type="text/javascript" src="js/jquery-1.12.3.js" ></script>-->
-		<!--<script type="text/javascript" src="js/jquery.cookie.js" ></script>-->
-		<!--<script type="text/javascript" src="js/cart.js" ></script>-->
-		<!--<script type="text/javascript" src="js/fstvgo.js" ></script>-->
-		<link rel="stylesheet" href="{% static 'css/cart.css' %}" />
+
 		<link rel="stylesheet" href="{% static 'css/fstvgo.css' %}" />
-		<script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>
+		<link rel="stylesheet" href="{% static 'css/cart.css' %}" />
+
 
 	</head>
 	<body>
@@ -126,41 +124,31 @@
 						</th>
 						<th>数量</th>
 						<th>金额小计</th>
+
+
 					</tr>
+
+
 				</thead>
-				<tbody id="car_tbody">
-					<tr class="tr">
-						<td class="td1">
-							<h6>风尚自营</h6>
-							<div class="c_src">
-								<img src="{% static 'img/03/01.png' %}">
-							</div>
-							<div class="td1div">
-								<a class="c_name">"马踏飞燕"多功能太阳镜11</a>
-								<p class="c_id">商品编号：<em>310025&nbsp;</em>颜色：<i>无&nbsp;</i>规格：<label>无</label></p>
-							</div>
-						</td>
-						<td class="td2">
-							<p>¥199</p>
-						</td>
-						<td class="td3">
-							<p>有货</p>
-						</td>
-						<td class="td4">
-							<span class="spanff"><span class="jian">-</span><input type="text" placeholder="1"><span class="jia">+</span></span>
-						</td>
-						<td class="td5">
-							<p>¥0</p>
-						</td>
-						<td class="td6">
-							<div class="td6div">
-							   <a>收藏</a>
-							   <a class="remove">删除</a>
-							</div>
-						</td>
-					</tr>
-				</tbody>
+
+
 			</table>
+<div id="payy">
+<table class="table">
+<theadd>
+{% for cart in carts %}
+<tr class="cart">
+<th><div>{{ cart.goods.productname }}</div></th>
+<th><div class="price" data-price="{{ cart.goods.price }}">{{ cart.goods.price }}</div></th>
+<th></th>
+	<th><span></span><div class="num" data-number="{{ cart.number }}">{{ cart.number }}</div><span></span></th>
+<th><b></b></th>
+</tr>
+
+{% endfor %}
+</theadd>
+</table>
+</div>
 			<div id="pay">
 				<div class="pay_1">
 					<a class="removecart">清空购物车</a>
@@ -182,13 +170,14 @@
 			</div>
 
 		</div>
+		</div>
 		<div class="mian_foot">
 				<a class="foot_shop" href="fstvgo.html">继续购物</a>
 				<div class="foot_right">
 					<span>填写送货地址 积分抵扣 优惠券使用 请点击-&gt;</span>
 				    <a class="foot_end">去结算 &gt;</a>
 				</div>
-				
+
 			</div>
 		</div>
 		<div id="last">
@@ -203,3 +192,8 @@
 		</div>
 	</body>
 </html>
+<script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>
+<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}" ></script>
+<script type="text/javascript" src="{% static 'js/cart.js' %}" ></script>
+<script type="text/javascript" src="{% static 'js/fstvgo.js' %}" ></script>
+<script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>

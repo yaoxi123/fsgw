@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^details/(?P<productid>\d+)/$', views.details, name='details'),  # 商品详情
     url(r'^goodlist/$', views.goodlist, name='goodlist'),  # 商品列表
     url(r'^cart/$', views.cart, name='cart'),  # 购物车
+    url(r'^addcart/$', views.addcart, name='addcart'),  # 添加到购物车
 ]

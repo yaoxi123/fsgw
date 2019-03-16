@@ -16,6 +16,7 @@ a{cursor: pointer;}
 #main {margin-top: 10px;width: 900px;height: auto;margin: 0 auto!important;font:12px/1.5 arial,\5b8b\4f53;border-top:2px solid #BFBFBF;border-left: 1px solid #BFBFBF;border-right:1px solid #BFBFBF }
 .table{width:898px;height: auto;overflow: hidden;}
 .table thead{width:898px;height: 45px;display: block;border-bottom: 1px solid #BFBFBF;background:#f3f3f3;line-height: 45px;}
+.table theadd{width:898px;height: 45px;display: block;border-bottom: 1px solid #BFBFBF;background:#f3f3f3;line-height: 45px;}
 .table th{display: inline-block;font-weight: normal;}
 
 .table th:first-child{padding-left: 120px;padding-right: 267px;}
@@ -76,3 +77,9 @@ a{cursor: pointer;}
 .foot_end{display: block;float:right;width: 175px;height: 42px;background: url(../img/bg_btn_cart.png)no-repeat -94px;line-height: 42px;text-align: center;color:#FFF;font-size: 18px;}
 
 #last{margin-top: 10px!important;}
+#payy{width:898px;height:auto;border-bottom: 1px solid #BFBFBF;margin: 0 auto;}
+
+
+
+
+

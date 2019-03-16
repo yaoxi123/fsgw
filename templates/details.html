@@ -5,11 +5,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" href=http://resource.fstvgo.com/image/Favicon.ico />
-		<!--<script type="text/javascript" src="js/jquery-1.12.3.js"></script>-->
 		<link rel="stylesheet" href="{% static 'css/details.css' %}" />
 		<link rel="stylesheet" href="{% static 'css/fstvgo.css' %}" />
-
-
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 		<title>{{ good.productname }}</title>
 	</head>
 
@@ -116,7 +114,7 @@
 				<div class="h_contR">
 					<p>0</p>
 					<img src="{% static 'img/风尚购物_07.jpg' %}">
-					<input type="button" value="去购物车结算" class="tocart">
+					<a href="{% url 'app:cart' %}"><input type="button" value="去购物车结算" class="tocart"></a>
 				</div>
 			</div>
 		</div>
@@ -323,7 +321,7 @@
 					<ul class="c_nav_ul">
 						<li class="f_li">全部商品分类</li>
 						<li>
-							<a href="#">首页</a>
+							<a href="{% url 'app:fstvgo' %}">首页</a>
 						</li>
 						<li>
 							<a href="#">电视直播</a>
@@ -417,31 +415,42 @@
 						<i>&nbsp;现货</i>
 					</div>
 					<div style="margin-top: 15px;" class="num">
-						<span>购买数量：</span>&nbsp;<input type="text" value="1" style="width: 30px;height: 20px;text-align: center;color: #333;">&nbsp;<span style="color: #333;">件</span>
-						<p style="display: inline-block;color: #333;">&nbsp;已选择<em style="font-style: normal;font-weight: bold;">"无 无码"</em></p>
+                        <div class="bt-wrapper">
+                            <span >购买数量：</span>&nbsp; <span class="glyphicon glyphicon-minus"></span>
+                            <input type="text" value="1" style="width: 30px;height: 20px;text-align: center;color: #333;" id="number1">&nbsp;<span style="color: #333;" ></span>
+                           <!--<i class="num" style="width: 30px;height: 20px;text-align: center;color: #333;">-->
+                                <!--{% for cart in carts %}-->
+<!--{#                                    当前购物车记录的 goods.id#}-->
+                                    <!--{% if goods.id == cart.goods.id %}-->
+                                        <!--{{ cart.number}}-->
+                                    <!--{% endif %}-->
+                                <!--{% endfor %}-->
+                            <!--</i>-->
+                         <span class="glyphicon glyphicon-plus"></span><span>&nbsp;&nbsp;件</span></div>
+						<!--<p style="display: inline-block;color: #333;">&nbsp;已选择<em style="font-style: normal;font-weight: bold;">"无 无码"</em></p>-->
 					</div>
 					<div style="margin-top: 15px;">
 						<a href="#"><img src="{% static 'img/03/quickbtn.png' %}"></a>
-						<a><img src="{% static 'img/03/addtocart.png' %}" class="addtocart"></a>
+						<a><img src="{% static 'img/03/addtocart.png' %}" class="addtocart" data-goodsid="{{ good.id }}"></a>
 					</div>
 
 				</div>
-				<div id="g_right">
-					<p style="">品牌名称：<span><a href="#">{{ good.product }}</a></span></p>
-					<div class="paizi">
-						<a href="#">进入品牌页面查看更多</a>
-					</div>
-					<div class="blue">
-						<h2>[网购特惠]</h2>
-						<h2>支付宝/银联支付/微信支付</h2>
-						<h2>享受再减10元优惠</h2>
-					</div>
-					<div class="cart">
-						<h3>手机扫码订购</h3>
-						<img src="{% static 'img/03/QRCodeHandler.png' %}" style=" width:100px;">
-						<h4>货到付款/支付宝/银联支付/微信支付</h4>
-					</div>
-				</div>
+				<!--<div id="g_right">
+					<!--<p style="">品牌名称：<span><a href="#">{{ good.product }}</a></span></p>-->
+					<!--<div class="paizi">-->
+						<!--<a href="#">进入品牌页面查看更多</a>-->
+					<!--</div>-->
+					<!--<div class="blue">-->
+						<!--<h2>[网购特惠]</h2>-->
+						<!--<h2>支付宝/银联支付/微信支付</h2>-->
+						<!--<h2>享受再减10元优惠</h2>-->
+					<!--</div>-->
+					<!--<div class="cart">-->
+						<!--<h3>手机扫码订购</h3>-->
+						<!--<img src="{% static 'img/03/QRCodeHandler.png' %}" style=" width:100px;">-->
+						<!--<h4>货到付款/支付宝/银联支付/微信支付</h4>-->
+					<!--</div>-->
+				<!--</div>-->
 			</div>
 		</div>
 		<div id="goods">
@@ -572,8 +581,8 @@
 
 </html>
 <script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>
-<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/fstvgo.js' %}"></script>
+<!--<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>-->
+		<!--<script type="text/javascript" src="{% static 'js/fstvgo.js' %}"></script>-->
 		<script type="text/javascript" src="{% static 'js/details.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+		<!--<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>-->
+		<!--<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>-->
