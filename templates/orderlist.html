@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>订单列表</title>
-</head>
-<body>
-    <div class="orderlist">
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    订单列表
+{% endblock %}
+{% block content %}
+    <div class="orderlist" style="margin-top: 10px;width: 900px;height: auto;margin: 0 auto!important;font:26px/1.5 arial,\5b8b\4f53;border:3px solid #BFBFBF;background: #ffd9fa">
         {% for order in orders %}
             <p class="bg-info">
                 <a href="{% url 'app:orderdetail' order.identifier %}">
@@ -26,5 +25,4 @@
             <br>
         {% endfor %}
     </div>
-</body>
-</html>
+{% endblock %}
