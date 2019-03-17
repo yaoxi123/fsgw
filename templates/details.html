@@ -415,15 +415,21 @@
 						<i>&nbsp;现货</i>
 					</div>
 					<div style="margin-top: 15px;" class="num">
+						 <span >购买数量：</span>&nbsp;
                         <div class="bt-wrapper">
-                            <span >购买数量：</span>&nbsp; <span class="glyphicon glyphicon-minus"></span>
-                            <input type="text" value="1" style="width: 30px;height: 20px;text-align: center;color: #333;" id="number1">&nbsp;<span style="color: #333;" ></span>
 
-                         <span class="glyphicon glyphicon-plus"></span><span>&nbsp;&nbsp;</span></div>
+							<!--<span class="glyphicon glyphicon-minus"></span>-->
+
+							 <button class="glyphicon glyphicon-minus" id="minus"></button>
+                            <input type="text" value="1" style="width: 30px;height: 20px;text-align: center;color: #333;" id="number1">&nbsp;
+							<button class="glyphicon glyphicon-plus" id="plus"></button>
+
+                         <!--<span class="glyphicon glyphicon-plus"></span><span>&nbsp;&nbsp;</span>-->
+						</div>
 
 					</div>
 					<div style="margin-top: 15px;">
-						<a href="{% url 'app:cart' %}"><img src="{% static 'img/03/quickbtn.png' %}"></a>
+						<a href="{% url 'app:cart' %}" class="kuaisu" data-goodsid="{{ good.id }}"><img src="{% static 'img/03/quickbtn.png' %}"></a>
 						<a ><img src="{% static 'img/03/addtocart.png' %}" class="addtocart" data-goodsid="{{ good.id }}"></a>
 					</div>
 
@@ -553,7 +559,7 @@
 					</dd>
 				</dl>
 				<ul>
-					<li><img src="{% static 'img/tellphone.gif' %}" <="" li="">
+					<li><img src="{% static 'img/tellphone.gif' %}">
 				</li></ul>
 			</div>
 		</div>

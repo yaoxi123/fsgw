@@ -1,16 +1,16 @@
 $(function() {
-	    //点击添加购物车操作事件
+    //点击添加购物车操作事件
     $('.addtocart').click(function () {
-       console.log('点击+')   //验证点击是否可以触发
-         request_data = {
+        console.log('点击')   //验证点击是否可以触发
+        request_data = {
             'goodsid': $(this).attr('data-goodsid'),
-             'number1':$('#number1').val()
+            'number1': $('#number1').val()
         }
         console.log(request_data['number1'])
         // var $that = $(this)
         $.get('/app/addcart/', request_data, function (response) {
             console.log(response)
-            if (response.status == -1){
+            if (response.status == -1) {
                 window.open('/app/login/', '_self')
             }
 
@@ -18,9 +18,46 @@ $(function() {
     })
 
 
+     $('.kuaisu').click(function () {
+         console.log('点击快速购买')
+         request_data = {
+             'goodsid': $(this).attr('data-goodsid'),
+             'number1': $('#number1').val()
+         }
+         console.log(request_data['number1'])
+         // var $that = $(this)
+         $.get('/app/quicklybuy/', request_data, function (response) {
+             console.log(response)
+             if (response.status == -1) {
+                 window.open('/app/login/', '_self')
+             }
+
+         })
+     })
+})
 
 
 
+$(function() {
+     $('.kuaisu').click(function (){
+        console.log('点击快速购买')
+    //      request_data = {
+    //         'goodsid': $(this).attr('data-goodsid'),
+    //         'number1': $('#number1').val()
+    //     }
+    //     console.log(request_data['number1'])
+    //     // var $that = $(this)
+    //     $.get('/app/quicklybuy/', request_data, function (response) {
+    //         console.log(response)
+    //         if (response.status == -1) {
+    //             window.open('/app/login/', '_self')
+    //         }
+    //
+    //     })
+    // })
+
+
+})
 
 
 

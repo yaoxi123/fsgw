@@ -12,4 +12,11 @@ urlpatterns = [
     url(r'^goodlist/$', views.goodlist, name='goodlist'),  # 商品列表
     url(r'^cart/$', views.cart, name='cart'),  # 购物车
     url(r'^addcart/$', views.addcart, name='addcart'),  # 添加到购物车
+    url(r'^pluscart/$', views.pluscart, name='pluscart'),  # +号添加购物车
+    url(r'^minuscart/$', views.minuscart, name='minuscart'),  # -号添加购物车
+    url(r'^quicklybuy/$', views.quicklybuy, name='quicklybuy'),  # 快速购买
+    url(r'^generateorder/$', views.generateorder, name='generateorder'),    # 生成订单
+    url(r'orderlist/$', views.orderlist, name='orderlist'), # 订单列表
+    url(r'^orderdetail/(?P<identifier>[\d.]+)/$', views.orderdetail, name='orderdetail'),  # 订单详情
+
 ]

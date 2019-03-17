@@ -4,7 +4,7 @@ import time
 
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from app.models import Bigwheel,Smwheel,User,Goods,Cart
+from app.models import Bigwheel,Smwheel,User,Goods,Cart,Order,OrderGoods
 # Create your views here.
 from django.core.cache import cache
 
@@ -133,21 +133,6 @@ def cart(request):
     else:   # 未登录不显示
         return render(request, 'login.html')
 
-
-    # if userid:  # 有登录才显示
-    #     user = User.objects.get(pk=userid)
-    #     carts = user.cart_set.filter(number__gt=0)
-    #
-    #     isall = True
-    #     for cart in carts:
-    #         if not cart.isselect:
-    #             isall = False
-    #
-    #     return render(request, 'cart/cart.html', context={'carts': carts, 'isall':isall})
-    # else:   # 未登录不显示
-    #     return render(request, 'cart/no-login.html')
-
-
 def checketel(request):
     tel = request.GET.get('tel')
     users = User.objects.filter(tel=tel)
@@ -215,3 +200,122 @@ def addcart(request):
     response_data['msg'] = '请登录后操作'
     return JsonResponse(response_data)
 
+def pluscart(request):
+    token = request.session.get('token')
+    response_data = {}
+    if token:
+        userid = cache.get(token)
+        if userid:
+            user = User.objects.get(pk=userid)
+            goodsid = request.GET.get('goodsid')
+            goods = Goods.objects.get(pk=goodsid)
+            carts = Cart.objects.filter(user=user).filter(goods=goods)
+            cartsnumber = request.GET.get("cartsnumber")
+            if carts.exists():
+                cart = carts.first()
+                cart.number = cart.number + 1
+                cart.save()
+
+
+            response_data['status'] = 1
+            response_data['number'] = cart.number
+            response_data['msg'] = '添加 {} 购物车成功: {}'.format(cart.goods.productname, cart.number)
+            return JsonResponse(response_data)
+
+        response_data['status'] = -1
+        response_data['msg'] = '请登录后操作'
+        return JsonResponse(response_data)
+
+def minuscart(request):
+    token = request.session.get('token')
+    response_data = {}
+    if token:
+        userid = cache.get(token)
+        if userid:
+            user = User.objects.get(pk=userid)
+            goodsid = request.GET.get('goodsid')
+            goods = Goods.objects.get(pk=goodsid)
+            carts = Cart.objects.filter(user=user).filter(goods=goods)
+            cartsnumber = request.GET.get("cartsnumber")
+            if carts.exists():
+                cart = carts.first()
+                cart.number = cart.number - 1
+                cart.save()
+
+            response_data['status'] = 1
+            response_data['number'] = cart.number
+            response_data['msg'] = '添加 {} 购物车成功: {}'.format(cart.goods.productname, cart.number)
+            return JsonResponse(response_data)
+
+        response_data['status'] = -1
+        response_data['msg'] = '请登录后操作'
+        return JsonResponse(response_data)
+
+def quicklybuy(request):
+    token = request.session.get('token')
+    response_data = {}
+    if token:
+        userid = cache.get(token)
+        if userid:  # 已经登录
+            user = User.objects.get(pk=userid)
+            goodsid = request.GET.get('goodsid')
+            num = int(request.GET.get('number1'))
+            # print(goodsid)
+            goods = Goods.objects.get(pk=goodsid)
+            carts = Cart.objects.filter(user=user).filter(goods=goods)
+            if carts.exists():
+                cart = carts.first()
+                cart.number = cart.number + num
+                cart.save()
+            else:
+                cart = Cart()
+                cart.user = user
+                cart.goods = goods
+                cart.number = num
+                cart.save()
+
+            response_data['status'] = 1
+            response_data['number'] = cart.number
+            response_data['msg'] = '添加 {} 购物车成功: {}'.format(cart.goods.productname, cart.number)
+            return JsonResponse(response_data)
+    response_data['status'] = -1
+    response_data['msg'] = '请登录后操作'
+    return JsonResponse(response_data)
+
+def generate_identifier():
+    temp = str(time.time()) + str(random.randrange(1000,10000))
+    return temp
+
+def generateorder(request):
+    token = request.session.get('token')
+    userid = cache.get(token)
+    user = User.objects.get(pk=userid)
+    # 订单
+    order = Order()
+    order.user = user
+    order.identifier = generate_identifier()
+    order.save()
+
+    # 订单商品(购物车中选中)
+    carts = user.cart_set.all()
+    for cart in carts:
+        orderGoods = OrderGoods()
+        orderGoods.order = order
+        orderGoods.goods = cart.goods
+        orderGoods.number = cart.number
+        orderGoods.save()
+        cart.delete()  #购物车中移除
+    return render(request, 'orderdetail.html', context={'order': order})
+
+def orderlist(request):
+    token = request.session.get('token')
+    userid = cache.get(token)
+    user = User.objects.get(pk=userid)
+
+    orders = user.order_set.all()
+    # status_list = ['未付款', '待发货', '待收货', '待评价', '已评价']
+    return render(request, 'orderlist.html', context={'orders':orders})
+
+def orderdetail(request, identifier):
+    order = Order.objects.filter(identifier=identifier).first()
+    return render(request, 'orderdetail.html', context={'order': order})
