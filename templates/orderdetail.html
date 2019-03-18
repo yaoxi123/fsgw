@@ -12,15 +12,17 @@
             {% for ordergoods in order.ordergoods_set.all %}
             <li>
                 <!--<span>{{ ordergoods.goods.productimg }}</span>-->
-                <span>商品名称：{{ ordergoods.goods.productname }}</span>
-                &nbsp;
+                <i>商品名称：{{ ordergoods.goods.productname }}</i>&nbsp;
                 <i>商品个数：x{{ ordergoods.number }}</i>
-            </li>
-            <i>商品单价：{{ ordergoods.goods.price }}</i>
+                <i>商品单价：{{ ordergoods.goods.price }}</i>
+                <hr>
             </li>
             {% endfor %}
         </ul>
 
         <button class="btn btn-default" id="alipay" data-orderid="{{ order.id }}">支付</button>
     </div>
+{% endblock %}
+{% block extjs %}
+    <script src="{% static 'js/orderdetail.js' %}"></script>
 {% endblock %}

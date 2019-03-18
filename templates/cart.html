@@ -129,25 +129,27 @@
      <div class="cart">
         <ul>
             {% for cart in carts %}
-                <li>
-                    <div class="confirm-wrapper" data-cardid="{{ cart.id }}">
-                    </div>
-                    <div class="content-wrapper">
-                        <div class="img">
-                            <img src="{{ cart.goods.productimg }}" alt="">
-                        </div>
-                        <div class="detail">
-                            <p class="name">{{ cart.goods.productname }}</p>
-                            <p class="price" data-price="{{ cart.goods.price }}">{{ cart.goods.price }}</p>
-                            <div class="bt-wrapper">
-                             <button class="glyphicon glyphicon-minus" data-goodsid="{{ cart.goods.id }}" id="minus">-</button>
-                            <p class="num" data-number="{{ cart.number }}"> {{ cart.number }}</p>
-                            <button class="glyphicon glyphicon-plus" data-goodsid="{{ cart.goods.id }}" id="plus" data-number="{{ cart.number }}">+</button>
-                            <p class="sumnum"></p>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+			<li>
+				<div class="confirm-wrapper" data-cardid="{{ cart.id }}"></div>
+				<div class="content-wrapper">
+					<div class="img">
+						<img src="{{ cart.goods.productimg }}" alt="">
+					</div>
+					<div class="detail">
+						<p class="name">{{ cart.goods.productname }}</p>
+						<p class="price" data-price="{{ cart.goods.price }}">{{ cart.goods.price }}</p>
+						<div class="bt-wrapper">
+							<button class="glyphicon glyphicon-minus" data-goodsid="{{ cart.goods.id }}" id="minus">-
+							</button>
+							<p class="num" data-number="{{ cart.number }}">{{ cart.number }}</p>
+							<button class="glyphicon glyphicon-plus" data-goodsid="{{ cart.goods.id }}" id="plus"
+									data-number="{{ cart.number }}">+
+							</button>
+							<p class="sumnum">10</p>
+						</div>
+					</div>
+				</div>
+			</li>
             <hr>
             {% endfor %}
         </ul>

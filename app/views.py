@@ -1,12 +1,18 @@
 import hashlib
 import random
 import time
+from urllib.parse import parse_qs
+
 
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from app.models import Bigwheel,Smwheel,User,Goods,Cart,Order,OrderGoods
+from app.models import Bigwheel,Smwheel,User,Goods,Cart,Order,OrderGoods,Details
 # Create your views here.
 from django.core.cache import cache
+from django.views.decorators.csrf import csrf_exempt
+
+
+from app.alipay import alipay
 
 
 def fstvgo(request):
@@ -93,10 +99,13 @@ def login(request):
 def details(request,productid):
     goods =Goods.objects.filter(productid=productid)
     good = goods.first()
+    details = Details.objects.filter(productid_id=productid)
+    detail = details.first()
     token = request.session.get('token')
     userid = cache.get(token)
     response_dir = {
         'good':good,
+        'detail':detail,
     }
     response_dir['user'] = None
     if token:
@@ -152,7 +161,6 @@ def goodlist(request):
     goods = Goods.objects.all()
     token = request.session.get('token')
     userid = cache.get(token)
-
     response_dir = {
         'goods':goods,
     }
@@ -163,21 +171,15 @@ def goodlist(request):
     return render(request,'goodlist.html',context=response_dir)
 
 def addcart(request):
-    # 获取token
     token = request.session.get('token')
-    # 响应数据
     response_data = {}
-    # 缓存
     if token:
         userid = cache.get(token)
         if userid:  # 已经登录
             user = User.objects.get(pk=userid)
             goodsid = request.GET.get('goodsid')
             num = int(request.GET.get('number1'))
-            # print(goodsid)
             goods = Goods.objects.get(pk=goodsid)
-            # 商品不存在: 添加新记录
-            # 商品存在: 修改number
             carts = Cart.objects.filter(user=user).filter(goods=goods)
             if carts.exists():
                 cart = carts.first()
@@ -191,11 +193,9 @@ def addcart(request):
                 cart.save()
 
             response_data['status'] = 1
-            response_data['number'] = cart.number
+            #response_data['number'] = cart.number
             response_data['msg'] = '添加 {} 购物车成功: {}'.format(cart.goods.productname, cart.number)
             return JsonResponse(response_data)
-    # 因为是ajax操作，所以重定向是不可以的!
-    # return redirect('axf:login')
     response_data['status'] = -1
     response_data['msg'] = '请登录后操作'
     return JsonResponse(response_data)
@@ -210,7 +210,7 @@ def pluscart(request):
             goodsid = request.GET.get('goodsid')
             goods = Goods.objects.get(pk=goodsid)
             carts = Cart.objects.filter(user=user).filter(goods=goods)
-            cartsnumber = request.GET.get("cartsnumber")
+            #cartsnumber = request.GET.get("cartsnumber")
             if carts.exists():
                 cart = carts.first()
                 cart.number = cart.number + 1
@@ -236,7 +236,7 @@ def minuscart(request):
             goodsid = request.GET.get('goodsid')
             goods = Goods.objects.get(pk=goodsid)
             carts = Cart.objects.filter(user=user).filter(goods=goods)
-            cartsnumber = request.GET.get("cartsnumber")
+            #cartsnumber = request.GET.get("cartsnumber")
             if carts.exists():
                 cart = carts.first()
                 cart.number = cart.number - 1
@@ -260,7 +260,6 @@ def quicklybuy(request):
             user = User.objects.get(pk=userid)
             goodsid = request.GET.get('goodsid')
             num = int(request.GET.get('number1'))
-            # print(goodsid)
             goods = Goods.objects.get(pk=goodsid)
             carts = Cart.objects.filter(user=user).filter(goods=goods)
             if carts.exists():
@@ -290,12 +289,13 @@ def generateorder(request):
     token = request.session.get('token')
     userid = cache.get(token)
     user = User.objects.get(pk=userid)
+    #response_data ={}
     # 订单
     order = Order()
     order.user = user
     order.identifier = generate_identifier()
     order.save()
-
+    #response_data['order'] = order
     # 订单商品(购物车中选中)
     carts = user.cart_set.all()
     for cart in carts:
@@ -305,13 +305,16 @@ def generateorder(request):
         orderGoods.number = cart.number
         orderGoods.save()
         cart.delete()  #购物车中移除
+    # response_data = {
+    #         'order':order,
+    #     }
     return render(request, 'orderdetail.html', context={'order': order})
+    #return JsonResponse(response_data)
 
 def orderlist(request):
     token = request.session.get('token')
     userid = cache.get(token)
     user = User.objects.get(pk=userid)
-
     orders = user.order_set.all()
     # status_list = ['未付款', '待发货', '待收货', '待评价', '已评价']
     return render(request, 'orderlist.html', context={'orders':orders})
@@ -319,3 +322,93 @@ def orderlist(request):
 def orderdetail(request, identifier):
     order = Order.objects.filter(identifier=identifier).first()
     return render(request, 'orderdetail.html', context={'order': order})
+
+
+# def quicklybuy(request):
+#     token = request.session.get('token')
+#     response_data = {}
+#     if token:
+#         userid = cache.get(token)
+#         if userid:  # 已经登录
+#             user = User.objects.get(pk=userid)
+#             goodsid = request.GET.get('goodsid')
+#             num = int(request.GET.get('number1'))
+#
+#             goods = Goods.objects.get(pk=goodsid)
+#             # print(num)
+#             order = Order()
+#
+#             order.user = user
+#
+#             order.identifier = generate_identifier()
+#
+#             order.save()
+#
+#             ordergoods = OrderGoods()
+#
+#             ordergoods.number = num
+#
+#             ordergoods.goods = goods
+#
+#             ordergoods.order = order
+#
+#             ordergoods.save()
+#
+#
+#             response_data['order'] = order
+#             response_data['ordergoods'] = ordergoods
+#
+#             response_data['status'] = 1
+#
+#             return JsonResponse(response_data)
+#     response_data['status'] = -1
+#     return JsonResponse(response_data)
+def returnurl(request):
+    return redirect('app:fstvgo')
+
+# 支付宝异步回调是post请求
+@csrf_exempt
+def appnotifyurl(request):
+    if request.method == 'POST':
+        # 获取到参数
+        body_str = request.body.decode('utf-8')
+        # 通过parse_qs函数
+        post_data = parse_qs(body_str)
+        # 转换为字典
+        post_dic = {}
+        for k,v in post_data.items():
+            post_dic[k] = v[0]
+        # 获取订单号
+        out_trade_no = post_dic['out_trade_no']
+        # 更新状态
+        Order.objects.filter(identifier=out_trade_no).update(status=1)
+    return JsonResponse({'msg':'success'})
+
+
+def pay(request):
+    orderid = request.GET.get('orderid')
+    order = Order.objects.get(pk=orderid)
+
+    sum = 0
+    for orderGoods in order.ordergoods_set.all():
+        sum += orderGoods.goods.price * orderGoods.number
+
+    # 支付地址信息
+    data = alipay.direct_pay(
+        subject='支付', # 显示标题
+        out_trade_no=order.identifier,    #订单号
+        total_amount=str(sum),   # 支付金额
+        return_url='http://127.0.0.1/app/returnurl/'
+    )
+
+    # 支付地址
+    alipay_url = 'https://openapi.alipaydev.com/gateway.do?{data}'.format(data=data)
+
+    response_data = {
+        'msg': '调用支付接口',
+        'alipayurl': alipay_url,
+        'status': 1
+    }
+    return JsonResponse(response_data)
+
+

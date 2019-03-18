@@ -45,19 +45,18 @@
 					<dd class="dd1">请填写您的手机号码</dd>
 				</dl>
 
-					<dl class="dl1">
-						<dt>
-							<b>*</b>
-							昵称:
-						</dt>
-						<dd>
-							<input type="text" class="uername" name="name">
-
-						</dd>
-						<dd class="dd2">
+				<dl class="dl1">
+					<dt>
+						<b>*</b>
+						昵称:
+					</dt>
+					<dd>
+						<input type="text" class="uername" name="name">
+					</dd>
+					<dd class="dd2">
 						请输入你的昵称
-						</dd>
-					</dl>
+					</dd>
+				</dl>
 
 				<dl class="dl2">
 					<dt><b>*</b>
@@ -99,9 +98,12 @@
 					<input type="checkbox" checked="checked">我已阅读并同意
 					<a href="#">《风尚用户注册协议》</a>
 					<!--<a class="uerre"><img src="{% static 'img/02/zhuce (1).gif' %}" id="uerform"></a>-->
-					<input type="submit" value="注册" class="uerre" id="uerform">
-				</div>
+
+					<!--可以提交-->
+					<!--<input type="submit" value="注册" class="uerre" id="uerform">-->
+				<!--</div>-->
 				</form>
+				 <button id="subButton" class="uerre"><img src="{% static 'img/02/zhuce (1).gif' %}" id="uerform"></button>
 			</div>
 		</div>
 	</div>
@@ -118,6 +120,7 @@
 	</body>
 
 </html>
+
 <script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>
 <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/register.js' %}"></script>

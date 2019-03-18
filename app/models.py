@@ -57,6 +57,20 @@ class Goods(models.Model):
     class Meta:
         db_table = 'goods'
 
+#商品详情下面小图
+class Details(models.Model):
+    productid = models.ForeignKey(Goods)
+    deimg1 = models.CharField(max_length=256)
+    deimg2 = models.CharField(max_length=256)
+    deimg3 = models.CharField(max_length=256)
+    deimg4 = models.CharField(max_length=256)
+    deimg5 = models.CharField(max_length=256)
+    deimg6 = models.CharField(max_length=256)
+    deimg7 = models.CharField(max_length=256)
+    class Meta:
+        db_table = 'deimg'
+
+
 class Cart(models.Model):
     # 用户 [添加的这个商品属于哪个用户]
     user = models.ForeignKey(User)
@@ -89,6 +103,6 @@ class OrderGoods(models.Model):
     order = models.ForeignKey(Order)
     # 商品
     goods = models.ForeignKey(Goods)
-    ## 商品选择规格
+    # 商品数量
     number = models.IntegerField()
 

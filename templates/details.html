@@ -362,13 +362,13 @@
 						<a class="gright"><img src="{% static 'img/03/nextbtn.gif' %}"></a>
 						<div class="g_show">
 							<ul>
-								<li><img src="{% static 'img/03/01.png' %}" /></li>
-								<li><img src="{% static 'img/03/02.png' %}" /></li>
-								<li><img src="{% static 'img/03/03.png' %}" /></li>
-								<li><img src="{% static 'img/03/04.png' %}" /></li>
-								<li><img src="{% static 'img/03/05.png' %}" /></li>
-								<li><img src="{% static 'img/03/06.png' %}" /></li>
-								<li><img src="{% static 'img/03/07.png' %}" /></li>
+								<li><img src="{{ detail.deimg1 }}" /></li>
+								<li><img src="{{ detail.deimg2 }}" /></li>
+								<li><img src="{{ detail.deimg3 }}" /></li>
+								<li><img src="{{ detail.deimg4 }}" /></li>
+								<li><img src="{{ detail.deimg5 }}" /></li>
+								<li><img src="{{ detail.deimg6 }}" /></li>
+								<li><img src="{{ detail.deimg7 }}" /></li>
 							</ul>
 						</div>
 					</div>
@@ -421,7 +421,8 @@
 							<!--<span class="glyphicon glyphicon-minus"></span>-->
 
 							 <button class="glyphicon glyphicon-minus" id="minus"></button>
-                            <input type="text" value="1" style="width: 30px;height: 20px;text-align: center;color: #333;" id="number1">&nbsp;
+                            <input type="text" value="1" style="width: 30px;height: 20px;text-align: center;color: #333;" id="number1"
+							class="number">&nbsp;
 							<button class="glyphicon glyphicon-plus" id="plus"></button>
 
                          <!--<span class="glyphicon glyphicon-plus"></span><span>&nbsp;&nbsp;</span>-->
@@ -429,7 +430,7 @@
 
 					</div>
 					<div style="margin-top: 15px;">
-						<a href="{% url 'app:cart' %}" class="kuaisu" data-goodsid="{{ good.id }}"><img src="{% static 'img/03/quickbtn.png' %}"></a>
+						<a  href="{% url 'app:generateorder' %}" class="kuaisu" data-goodsid="{{ good.id }}"><img src="{% static 'img/03/quickbtn.png' %}"></a>
 						<a ><img src="{% static 'img/03/addtocart.png' %}" class="addtocart" data-goodsid="{{ good.id }}"></a>
 					</div>
 
@@ -580,8 +581,8 @@
 
 </html>
 <script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>
-<!--<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>-->
+<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
 		<!--<script type="text/javascript" src="{% static 'js/fstvgo.js' %}"></script>-->
-		<script type="text/javascript" src="{% static 'js/details.js' %}"></script>
-		<!--<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>-->
+<script type="text/javascript" src="{% static 'js/details.js' %}"></script>
+<!--<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>-->
 		<!--<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>-->
