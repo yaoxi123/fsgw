@@ -21,5 +21,8 @@ urlpatterns = [
     url(r'^returnurl/$', views.returnurl, name='returnurl'),    # 支付成功后，客户端的显示
     url(r'^appnotifyurl/$', views.appnotifyurl, name='appnotifyurl'), # 支付成功后，订单的处理
     url(r'^pay/$', views.pay, name='pay'),  # 支付
+    url(r'^removecart/$', views.removecart, name='removecart'),  #清空购物车
+    url(r'^changecartselect/$', views.changecartselect, name='changecartselect'),  # 购物车商品选中状态
+    url(r'^changecartall/$', views.changecartall, name='changecartall'),  # 全选/取消全选
 
 ]

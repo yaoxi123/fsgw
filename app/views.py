@@ -239,8 +239,9 @@ def minuscart(request):
             #cartsnumber = request.GET.get("cartsnumber")
             if carts.exists():
                 cart = carts.first()
-                cart.number = cart.number - 1
-                cart.save()
+                if cart.number >1:
+                    cart.number = cart.number - 1
+                    cart.save()
 
             response_data['status'] = 1
             response_data['number'] = cart.number
@@ -289,14 +290,10 @@ def generateorder(request):
     token = request.session.get('token')
     userid = cache.get(token)
     user = User.objects.get(pk=userid)
-    #response_data ={}
-    # 订单
     order = Order()
     order.user = user
     order.identifier = generate_identifier()
     order.save()
-    #response_data['order'] = order
-    # 订单商品(购物车中选中)
     carts = user.cart_set.all()
     for cart in carts:
         orderGoods = OrderGoods()
@@ -305,9 +302,6 @@ def generateorder(request):
         orderGoods.number = cart.number
         orderGoods.save()
         cart.delete()  #购物车中移除
-    # response_data = {
-    #         'order':order,
-    #     }
     return render(request, 'orderdetail.html', context={'order': order})
     #return JsonResponse(response_data)
 
@@ -333,33 +327,20 @@ def orderdetail(request, identifier):
 #             user = User.objects.get(pk=userid)
 #             goodsid = request.GET.get('goodsid')
 #             num = int(request.GET.get('number1'))
-#
 #             goods = Goods.objects.get(pk=goodsid)
 #             # print(num)
 #             order = Order()
-#
 #             order.user = user
-#
 #             order.identifier = generate_identifier()
-#
 #             order.save()
-#
 #             ordergoods = OrderGoods()
-#
 #             ordergoods.number = num
-#
 #             ordergoods.goods = goods
-#
 #             ordergoods.order = order
-#
 #             ordergoods.save()
-#
-#
 #             response_data['order'] = order
 #             response_data['ordergoods'] = ordergoods
-#
 #             response_data['status'] = 1
-#
 #             return JsonResponse(response_data)
 #     response_data['status'] = -1
 #     return JsonResponse(response_data)
@@ -388,11 +369,9 @@ def appnotifyurl(request):
 def pay(request):
     orderid = request.GET.get('orderid')
     order = Order.objects.get(pk=orderid)
-
     sum = 0
     for orderGoods in order.ordergoods_set.all():
         sum += orderGoods.goods.price * orderGoods.number
-
     # 支付地址信息
     data = alipay.direct_pay(
         subject='支付', # 显示标题
@@ -411,4 +390,47 @@ def pay(request):
     }
     return JsonResponse(response_data)
 
+def removecart(request):
+    token = request.session.get('token')
+    userid = cache.get(token)
+    user = User.objects.get(pk=userid)
+    carts = user.cart_set.all()
+    response_data = {}
+    for cart in carts:
+        cart.delete()  # 购物车中移除
+        response_data['status'] = 1
+    return JsonResponse(response_data)
+
+def changecartselect(request):
+    cartid = request.GET.get('cartid')
+    cart = Cart.objects.get(pk=cartid)
+    cart.isselect = not cart.isselect
+    #print(1111111)
+    cart.save()
+    response_data = {
+        'msg': '状态修改成功',
+        'status': 1,
+        'isselect': cart.isselect
+    }
+    return JsonResponse(response_data)
+
+
+def changecartall(request):
+    isall = request.GET.get('isall')
+    token = request.session.get('token')
+    userid = cache.get(token)
+    user = User.objects.get(pk=userid)
+    carts = user.cart_set.all()
+    if isall == 'true':
+        isall = True
+    else:
+        isall = False
+    for cart in carts:
+        cart.isselect = isall
+        cart.save()
+    response_data = {
+        'msg': '全选/取消全选 成功',
+        'status': 1
+    }
+    return JsonResponse(response_data)
 

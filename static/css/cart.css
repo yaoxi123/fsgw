@@ -19,11 +19,11 @@ a{cursor: pointer;}
 .table theadd{width:898px;height: 45px;display: block;border-bottom: 1px solid #BFBFBF;background:#f3f3f3;line-height: 45px;}
 .table th{display: inline-block;font-weight: normal;}
 
-.table th:first-child{padding-left: 120px;padding-right: 267px;}
-.table th:nth-child(2){width:90px}
-.table th:nth-child(3){width: 103px;}
-.table th:nth-child(4){width:100px;padding-left:20px;}
-.table th:nth-child(5){width:160px}
+.table th:first-child{padding-left: 0px;padding-right: 67px;}
+.table th:nth-child(2){width:190px}
+.table th:nth-child(3){width: 320px;}
+.table th:nth-child(4){width:50px}
+.table th:nth-child(4){width:160px}
 .citychos{background: url(../img/bg_ico_drop.png)no-repeat center center;width:21px;height: 22px;float: right;}
 .th_city{font-size:12px;width:103px;height: 24px;line-height: 24px;background: white;border: 1px solid #BFBFBF;;}
 .th_city a{border-right: 1px solid #BFBFBF;}
@@ -117,6 +117,15 @@ a{cursor: pointer;}
     width: 70%;
     font-size: 1rem;
 }
+
+.cart ul li .content-wrapper .detail .checkbox{
+   color: indianred;
+    font-weight: 500;
+    margin: 0.3rem 0;
+    position: absolute;
+    left: -100%;
+}
+
 .cart ul li .content-wrapper .detail .name{
    color: indianred;
     font-weight: 500;

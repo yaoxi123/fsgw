@@ -111,16 +111,12 @@
 		<div class="middle">
 		<div id="main">
 			<table class="table">
+
 				<thead>
 					<tr>
+						<th><input type="checkbox" class="all" data-all="{{ isall|lower }}">全选</th>
 						<th>商品</th>
 						<th>风尚价</th>
-						<th>
-							<div class="th_city">
-								<a style="line-height: 24px;float: left;width:81px;">广东 深圳市</a>
-								<b class="citychos"></b>
-							</div>
-						</th>
 						<th>数量</th>
 						<th>金额小计</th>
 					</tr>
@@ -130,8 +126,9 @@
         <ul>
             {% for cart in carts %}
 			<li>
-				<div class="confirm-wrapper" data-cardid="{{ cart.id }}"></div>
+				<div class="confirm-wrapper" ><input type="checkbox" class="checkbox" data-cardid="{{ cart.id }}" ></div>
 				<div class="content-wrapper">
+
 					<div class="img">
 						<img src="{{ cart.goods.productimg }}" alt="">
 					</div>
@@ -149,9 +146,11 @@
 						</div>
 					</div>
 				</div>
+				<!--<hr>-->
 			</li>
-            <hr>
+
             {% endfor %}
+			<hr>
         </ul>
 </div>
 			<div id="pay">

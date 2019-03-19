@@ -19,8 +19,9 @@
             </li>
             {% endfor %}
         </ul>
-
+        {% if order.status == 0 %}
         <button class="btn btn-default" id="alipay" data-orderid="{{ order.id }}">支付</button>
+        {% endif %}
     </div>
 {% endblock %}
 {% block extjs %}
